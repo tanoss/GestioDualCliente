@@ -1,9 +1,9 @@
 export class InfAprendizajeTutor {
-    id: number;
+    id?: number;
     idPlanMarcoFormacion: number;;
     semana: number;
     calificacion: number
-    fechaEntrega: Date;
+    fechaEntrega: string;
     reflexion: string;
     observaciones: string;
     prioridad: number;

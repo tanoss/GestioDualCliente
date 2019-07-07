@@ -1,6 +1,6 @@
-export class PlanMarcoFormacionModel
+export class PlanMarcoFormacion
  {
-    id: number;
+    id?: number;
     idSeguimiento: number;
     prioridad: number;
     constructor() {

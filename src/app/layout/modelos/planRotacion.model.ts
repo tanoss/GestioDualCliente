@@ -1,5 +1,5 @@
 export class PlanRotacion {
-  id: number;
+  id?: number;
   idPlanMarcoFormacion: number;
   conocimientosTeoricos: string;
   conocimientosProcedimentales: string;

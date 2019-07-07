@@ -1,5 +1,5 @@
-export class PlanRotacion {
-    id: number;
+export class SeguimientoEstudiante {
+    id?: number;
     idEstudiante: number;
     idEntidadFormadora: number;
     idPeriodoLectivo: number;
@@ -8,8 +8,8 @@ export class PlanRotacion {
     idTutorGeneral: number;
     idtutorEspecifico: number;
     coordinadorCarrera: string;
-    fechaInicio: Date;
-    fechaFin: Date;
+    fechaInicio: string;
+    fechaFin: string;
     horasFormacion: number; 
   
     constructor() {

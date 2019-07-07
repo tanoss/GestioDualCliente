@@ -1,5 +1,5 @@
 export class PlanProyectoEmpresarial {
-    id: number;
+    id?: number;
     idPlanMarcoFormacion: number;
     titulo: string;
     analisis: string;
