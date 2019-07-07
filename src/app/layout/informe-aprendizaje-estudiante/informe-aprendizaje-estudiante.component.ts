@@ -16,7 +16,7 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
 
   public data: any;
 
-  sistema: InfAprendizajeEstudiante = {
+  infest: InfAprendizajeEstudiante = {
     idInformeAprendizaje: 0,
     descripcion: "",
     tipo: "",
@@ -26,17 +26,6 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
     horasTotales:"",
     prioridad: 0,
   }
-
-  id: number;
-    idInformeAprendizaje: number;
-    descripcion: string;
-    tipo: string;
-    fecha: Date;
-    horaIngreso: string;
-    horaSalida: string;
-    horasTotales: string;
-    prioridad: number;
-
 
 
   cargarDatos() {
@@ -49,7 +38,7 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
   }
 
   agregarDatos() {
-    this.Service.addData(this.sistema, "segadds")
+    this.Service.addData(this.infest, "segadds")
       .subscribe((data: InfAprendizajeEstudiante) => {
         this.data = data; 
       },
@@ -59,7 +48,7 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
   }
 
  borrarDatos(id: number){
-    this.Service.deleteData( this.data.id ).subscribe( () => {
+    this.Service.deleteData(id,"/del" ).subscribe( () => {
       
       console.log(this.data.id);
     });
