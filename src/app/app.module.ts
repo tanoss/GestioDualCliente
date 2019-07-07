@@ -13,7 +13,6 @@ import {AuthGuard} from './shared';
 import {ToastrModule} from 'ngx-toastr';
 import {PdfViewerModule} from 'ng2-pdf-viewer';
 import {NgxSpinnerModule} from 'ngx-spinner';
-import { CuposComponent } from './cupos/cupos.component';
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
   /* for development
@@ -46,7 +45,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     }),
     AppRoutingModule
   ],
-  declarations: [AppComponent, CuposComponent],
+  declarations: [AppComponent],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
