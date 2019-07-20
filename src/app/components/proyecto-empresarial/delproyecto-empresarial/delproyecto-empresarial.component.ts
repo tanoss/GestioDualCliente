@@ -10,7 +10,6 @@ import { RestService } from '../../../service/rest.service';
 })
 export class DelproyectoEmpresarialComponent implements OnInit {
 
-  
   constructor(
     public dialogRef: MatDialogRef<DelproyectoEmpresarialComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,

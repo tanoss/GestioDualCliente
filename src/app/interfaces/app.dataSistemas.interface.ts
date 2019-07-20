@@ -6,78 +6,78 @@ export interface SistemasData {
 }
 
 export interface EntidadData {
-    id:number;
-    nombre:string;
-    naturaleza:string;
-    representanteLegal:string;
-    ruc:string;
-    actividadEconomica:string;
-    correo:string;
-    direccion:string;
-    telefono:string
+    id: number;
+    nombre: string;
+    naturaleza: string;
+    representanteLegal: string;
+    ruc: string;
+    actividadEconomica: string;
+    correo: string;
+    direccion: string;
+    telefono: string
 }
 
 export class Ppempresarial {
-    id?:number;
-    titulo:string
-    analisis:string;
-    objetivo:string;
-    descripcion:string;
-    indicador:string;
-    medicion:string;
+    id?: number;
+    titulo: string
+    analisis: string;
+    objetivo: string;
+    descripcion: string;
+    indicador: string;
+    medicion: string;
     meta: string;
-    fuenteDatos:string;
-    presupuesto:number;
-    beneficiosEsperados:string;
-    prioridad:number;
-    fptraining:fptrainingModel;
+    fuenteDatos: string;
+    presupuesto: number;
+    beneficiosEsperados: string;
+    prioridad: number;
+    fptraining: fptrainingModel;
 
-    constructor(){
-        this.id=0;
-        this.titulo="";
-        this.analisis="";
-        this.objetivo="";
-        this.descripcion="";
-        this.indicador="";
-        this.medicion="";
-        this.meta="";
-        this.fuenteDatos="";
-        this.presupuesto=0;
-        this.beneficiosEsperados="";;
-        this.prioridad=0;
+    constructor() {
+        this.id = 0;
+        this.titulo = "";
+        this.analisis = "";
+        this.objetivo = "";
+        this.descripcion = "";
+        this.indicador = "";
+        this.medicion = "";
+        this.meta = "";
+        this.fuenteDatos = "";
+        this.presupuesto = 0;
+        this.beneficiosEsperados = "";;
+        this.prioridad = 0;
         this.fptraining = new fptrainingModel();
     }
 }
 
 //protected $fillable = ['idPlanMarcoFormacion','titulo','analisis','objetivo','descripcion','indicador','medicion','meta','fuenteDatos','presupuesto','beneficiosEsperados','prioridad'];
 export class PpempresarialModel {
-    id?:number;
-    titulo:string
-    analisis:string;
-    objetivo:string;
-    descripcion:string;
-    indicador:string;
-    medicion:string;
+    id?: number;
+    titulo: string
+    analisis: string;
+    objetivo: string;
+    descripcion: string;
+    indicador: string;
+    medicion: string;
     meta: string;
-    fuenteDatos:string;
-    presupuesto:number;
-    beneficiosEsperados:string;
-    prioridad:number;
-    fptraining:fptrainingModel;
+    fuenteDatos: string;
+    presupuesto: number;
+    beneficiosEsperados: string;
+    prioridad: number;
+    fptraining: fptrainingModel;
 
-    constructor(){
-        this.id=0;
-        this.titulo="";
-        this.analisis="";
-        this.objetivo="";
-        this.descripcion="";
-        this.indicador="";
-        this.medicion="";
-        this.meta="";
-        this.fuenteDatos="";
-        this.presupuesto=0;
-        this.beneficiosEsperados="";;
-        this.prioridad=0;
+    constructor() {
+        this.id = 0;
+        this.titulo = "";
+        this.analisis = "";
+        this.objetivo = "";
+        this.descripcion = "";
+        this.indicador = "";
+        this.medicion = "";
+        this.meta = "";
+        this.fuenteDatos = "";
+        this.presupuesto = 0;
+        this.beneficiosEsperados = "";;
+        this.prioridad = 0;
         this.fptraining = new fptrainingModel();
     }
 }
@@ -85,11 +85,11 @@ export class PpempresarialModel {
 export class fptrainingModel {
     id?: number;
     prioridad: number;
-    constuctor(){
-        this.id=0;
-        this.prioridad=0;
+    constuctor() {
+        this.id = 0;
+        this.prioridad = 0;
     }
-   
+
 }
 
 export interface PerfilData {
@@ -151,3 +151,22 @@ export interface Usuario {
     email: String;
     departamento: String;
 }
+export class PlanRotacionModel {
+    id?: number;
+    conocimientosTeoricos: string;
+    conocimientosProcedimentales: string;
+    conocimientosActitudinales: string;
+    prioridad: number;
+    fptraining: fptrainingModel;
+
+    constructor(){
+    this.id = 0;
+    this.conocimientosTeoricos = "";
+    this.conocimientosProcedimentales = "";
+    this.conocimientosActitudinales = "";
+    this.prioridad = 0;
+    this.fptraining = new fptrainingModel();
+ }
+}
+
+

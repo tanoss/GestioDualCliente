@@ -53,67 +53,30 @@
                       </ng-container>
 
                       <!-- Name Column -->
-                      <ng-container matColumnDef="titulo">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Titulo </th>
-                          <td mat-cell *matCellDef="let element"> {{element.titulo}} </td>
+                      <ng-container matColumnDef="conocimientosTeoricos">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Conocimientos teóricos</th>
+                          <td mat-cell *matCellDef="let element"> {{element.conocimientosTeoricos}} </td>
                       </ng-container>
 
                       <!-- Weight Column -->
-                      <ng-container matColumnDef="analisis">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Analisis </th>
-                          <td mat-cell *matCellDef="let element"> {{element.analisis}} </td>
+                      <ng-container matColumnDef="conocimientosProcedimentales">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Conocimientos Procedimentales </th>
+                          <td mat-cell *matCellDef="let element"> {{element.conocimientosProcedimentales}} </td>
                       </ng-container>
 
-                      <ng-container matColumnDef="objetivo">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Objetivo </th>
-                          <td mat-cell *matCellDef="let element"> {{element.objetivo}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="descripcion">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </th>
-                          <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="indicador">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Indicador</th>
-                          <td mat-cell *matCellDef="let element"> {{element.indicador}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="medicion">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Medicion </th>
-                          <td mat-cell *matCellDef="let element"> {{element.medicion}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="meta">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> meta </th>
-                          <td mat-cell *matCellDef="let element"> {{element.meta}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="fuenteDatos">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Fuente de datos </th>
-                          <td mat-cell *matCellDef="let element"> {{element.fuenteDatos}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="presupuesto">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Presupuesto</th>
-                          <td mat-cell *matCellDef="let element"> {{element.presupuesto}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="beneficiosEsperados">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Beneficios Esperados </th>
-                          <td mat-cell *matCellDef="let element"> {{element.beneficiosEsperados}} </td>
+                      <ng-container matColumnDef="conocimientosActitudinales">
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header>Conocimientos Actitudinales </th>
+                          <td mat-cell *matCellDef="let element"> {{element.conocimientosActitudinales}} </td>
                       </ng-container>
 
                       <ng-container matColumnDef="prioridad">
                           <th mat-header-cell *matHeaderCellDef mat-sort-header> Prioridad</th>
                           <td mat-cell *matCellDef="let element"> {{element.prioridad}} </td>
                       </ng-container>
-
                       <ng-container matColumnDef="fid">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> marco de plan de formacion </th>
-                          <td mat-cell *matCellDef="let element"> {{element.frameworkplantraining_id}} </td>
-                      </ng-container>
-                     
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> marco de plan de formacion </th>
+                        <td mat-cell *matCellDef="let element"> {{element.training_framework_plan.id}} </td>
+                    </ng-container>
                       <ng-container matColumnDef="opciones">
                           <th mat-header-cell *matHeaderCellDef mat-sort-header> Opciones </th>
 
@@ -123,7 +86,7 @@
                               </button>
 
                               <button mat-icon-button color="accent"
-                                  (click)="deleteCentros(i, element.id, element.titulo)">
+                                  (click)="deleteCentros(i, element.id, element.conocimientosTeoricos)">
                                   <mat-icon aria-label="Delete">delete</mat-icon>
                               </button>
                           </td>

@@ -41,7 +41,11 @@ export class ProyectoEmpresarialComponent implements OnInit {
   }
 
   ngOnInit() {
+   
+
     this.cargarCentros();
+   
+
   }
 
   // Buscador/Filtro en Tabla

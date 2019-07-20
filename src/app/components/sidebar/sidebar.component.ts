@@ -19,7 +19,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/plan-marco-formacion', title: 'P. Marco Formacion',  icon:'view_list', class: '' },
     { path: '/plan-rotacion', title: 'Plan Rotación',  icon:'view_list', class: '' },
     { path: '/proyecto-empresarial', title: 'Proyecto Empresarial',  icon:'view_list', class: '' },
-    { path: '/seguimiento-estudiante', title: 'Seguimiento Estudiante',  icon:'view_list', class: '' },
+    //{ path: '/seguimiento-estudiante', title: 'Seguimiento Estudiante',  icon:'view_list', class: '' },
    
 ];
 

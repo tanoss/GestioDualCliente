@@ -1,3 +1,30 @@
-<p>
-  addplan-rotacion works!
-</p>
+<h2 mat-dialog-title>Crear Nuevo Plan de Rotación</h2>
+<mat-dialog-content>
+    <form (ngSubmit)="addSistema()" #forma="ngForm">
+        <div>
+            <mat-form-field>
+                <input matInput [(ngModel)]="protacion.conocimientosTeoricos" name="descripcion" type="text" placeholder="conocimientosTeoricos" required="conocimientosTeoricos" >
+            <mat-error>Mínimo 7 letras /*caracteres especiales NO ADMITIDOS*</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput [(ngModel)]="protacion.conocimientosProcedimentales" name="url" type="text" placeholder="conocimientosProcedimentales" required >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput  [(ngModel)]="protacion.conocimientosActitudinales" name="u" type="text" placeholder="conocimientosActitudinales"  required   >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="protacion.prioridad" name="rl" type="text" placeholder="Prioridad"  required  >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="protacion.fptraining.id" name="werr" type="text" placeholder="Marco de Formacion "  required >  
+            </mat-form-field>
+        </div>
+
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button (click)="cerrarModal()">Cancelar</button>
+    <button [disabled]="!forma.valid" mat-raised-button mat-primary color="primary" (click)="addSistema()">Agregar</button>
+</mat-dialog-actions>
