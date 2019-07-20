@@ -1,0 +1,55 @@
+<h2 mat-dialog-title>Editar Plan de Proyecto Empresarial</h2>
+
+<mat-dialog-content>
+    <form (ngSubmit)="actualizarSistema()" #forma="ngForm">
+        <div>
+            <mat-form-field>
+                <input matInput  name="descripcion" type="text" placeholder="Titulo" required="Ingrese un nombre de sistema" >
+            <mat-error>Mínimo 7 letras /*caracteres especiales NO ADMITIDOS*</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput  name="url" type="text" placeholder="Analisis" required >  
+                <mat-error>formato inválido<br>
+                    Ejemplo: www.ejemplo.espe.edu.ec
+                </mat-error>
+
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput  name="u" type="text" placeholder="Objetivo"  required   >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput  name="rl" type="text" placeholder="Descripcion"  required  >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput  name="l" type="text" placeholder="Indicador" required >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput  name="ur" type="text" placeholder="Medicion"  required  >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput  name="re" type="text" placeholder="Meta"  required >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="ee" type="text" placeholder="Fuente de Datos"  required  >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput  name="wr" type="text" placeholder="Presupuesto " required  >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput  name="wrr" type="text" placeholder="Beneficios Esperado" required  >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="see" type="text" placeholder="Prioridad " required  >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput name="werr" type="text" placeholder="Marco de Formacion "  required >  
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button (click)="cerrarModal()">Cancelar</button>
+    <button mat-raised-button mat-primary (click)="actualizarSistema()">Actualizar</button>
+</mat-dialog-actions>

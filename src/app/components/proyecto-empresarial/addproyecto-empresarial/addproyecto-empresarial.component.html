@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>Crear Nuevo Plan de proyecto Empresarial</h2>
+<mat-dialog-content>
+    <form (ngSubmit)="addSistema()" #forma="ngForm">
+        <div>
+            <mat-form-field>
+                <input matInput [(ngModel)]="ppempresarial.titulo" name="descripcion" type="text" placeholder="Titulo" required="Ingrese un nombre de sistema" >
+            <mat-error>Mínimo 7 letras /*caracteres especiales NO ADMITIDOS*</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput [(ngModel)]="ppempresarial.analisis" name="url" type="text" placeholder="Analisis" required >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput  [(ngModel)]="ppempresarial.objetivo" name="u" type="text" placeholder="Objetivo"  required   >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="ppempresarial.descripcion" name="rl" type="text" placeholder="Descripcion"  required  >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="ppempresarial.indicador"  name="l" type="text" placeholder="Indicador" required >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="ppempresarial.medicion" name="ur" type="text" placeholder="Medicion"  required  >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="ppempresarial.meta" name="re" type="text" placeholder="Meta"  required >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="ppempresarial.fuenteDatos" name="ee" type="text" placeholder="Fuente de Datos"  required  >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="ppempresarial.presupuesto" name="wr" type="text" placeholder="Presupuesto " required  >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="ppempresarial.beneficiosEsperados" name="wrr" type="text" placeholder="Beneficios Esperado" required  >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="ppempresarial.prioridad"  name="see" type="text" placeholder="Prioridad " required  >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="ppempresarial.fptraining.id" name="werr" type="text" placeholder="Marco de Formacion "  required >  
+            </mat-form-field>
+        </div>
+
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button (click)="cerrarModal()">Cancelar</button>
+    <button [disabled]="!forma.valid" mat-raised-button mat-primary color="primary" (click)="addSistema()">Agregar</button>
+</mat-dialog-actions>

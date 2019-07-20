@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Editar Perfil</h2>
+
+<mat-dialog-content>
+    <form (ngSubmit)="actualizarPerfil()" #forma="ngForm">
+        <!-- <div>
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.data.sisId" name="idCentroGestion" type="text" placeholder="Id Centro Gestión" required>
+            </mat-form-field>
+        </div> -->
+        <div>
+            <!-- <mat-form-field>
+                <input matInput [(ngModel)]="data.data.perNombre" name="pernombre" type="text" placeholder="Nombre del Perfil" required>
+            </mat-form-field> -->
+
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.data.perNombre" name="pernombre" type="text" placeholder="Nombre del Perfil" required="Ingrese un nombre de Perfil" minlength="7" >
+            <mat-error>Mínimo 7 letras /*caracteres especiales NO ADMITIDOS*</mat-error>
+            </mat-form-field>
+<br>
+
+            <!-- <mat-form-field>
+                <input matInput [(ngModel)]="data.data.sisUrlSistema" name="sisurl" type="text" placeholder="Url del Sistema" required>
+            </mat-form-field> -->
+            <mat-form-field>
+                <mat-label>Sistemas</mat-label>
+                <mat-select [(ngModel)]="data.data.sisId" name="urlsis"> 
+                  <mat-option *ngFor="let sistema of sistems " value="{{sistema.sisId}}">
+                    {{sistema.sisNombre}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+        </div>
+
+        <!-- <div>
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.data.rutEjecucion" name="rutEjecucion" type="text" placeholder="Rut Ejecución" required>
+            </mat-form-field>
+        </div> -->
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button (click)="cerrarModal()">Cancelar</button>
+    <button mat-raised-button mat-primary (click)="actualizarPerfil()">Actualizar</button>
+</mat-dialog-actions>

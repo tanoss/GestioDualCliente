@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>Editar Opción</h2>
+
+<mat-dialog-content>
+    <form (ngSubmit)="actualizarOpcion()" #forma="ngForm">
+        <!-- <div>
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.data.sisId" name="idCentroGestion" type="text" placeholder="Id Centro Gestión" required>
+            </mat-form-field>
+        </div> -->
+        <div>
+            <!-- <mat-form-field>
+                <input matInput [(ngModel)]="data.data.opcId" name="opcId" type="text" placeholder="Opcion Id" required>
+            </mat-form-field> -->
+
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.data.opcNombre" name="opcNombre" type="text" placeholder="Nombre" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.data.opcNivel" name="opcNivel" type="text" placeholder="Nivel" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.data.opcOrden" name="opcOrden" type="text" placeholder="Orden" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.data.opcUrl" name="opcUrl" type="text" placeholder="Url" required>
+            </mat-form-field>
+            <!-- <mat-form-field>
+                <input matInput [(ngModel)]="data.data.sisId" name="segSistemas" type="text" placeholder="Id del sistema" required>
+            </mat-form-field> -->
+            <mat-form-field>
+                <mat-label>Sistemas</mat-label>
+                <mat-select [(ngModel)]="data.data.sisId" name="urlsis">
+                    <mat-option *ngFor="let sistema of sistems " value="{{sistema.sisId}}">
+                        {{sistema.sisNombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+        </div>
+
+        <!-- <div>
+            <mat-form-field>
+                <input matInput [(ngModel)]="data.data.rutEjecucion" name="rutEjecucion" type="text" placeholder="Rut Ejecución" required>
+            </mat-form-field>
+        </div> -->
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button (click)="cerrarModal()">Cancelar</button>
+    <button mat-raised-button mat-primary (click)="actualizarOpcion()">Actualizar</button>
+</mat-dialog-actions>

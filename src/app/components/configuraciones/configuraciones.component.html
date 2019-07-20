@@ -1,0 +1,65 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header card-header-danger">
+        <h3 class="card-title">Configuraciones del perfil </h3>
+        <p class="card-category">Cambio de clave se seguridad.
+        </p>
+      </div>
+      <div class="card-body">
+        <mat-horizontal-stepper linear #stepper>
+          <mat-step [stepControl]="firstFormGroup" [editable]="false">
+            <form [formGroup]="firstFormGroup">
+              <ng-template matStepLabel>Contraseña Actual</ng-template>
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field>
+                    <mat-label> <strong>Contraseña</strong></mat-label>
+                    <input matInput placeholder="Ingrese sus contraseña actual" formControlName="lastpass"
+                      [type]="hide ? 'password' : 'text'" required>
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div>
+                <button mat-button [disabled]="firstFormGroup.invalid" (click)="confpass()">Continuar</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+              <ng-template matStepLabel>Nueva contraseña</ng-template>
+              <div class="row">
+                <div class="col-md-4">
+                  <mat-form-field>
+                    <mat-label> <strong>Contraseña</strong></mat-label>
+                    <input matInput placeholder="Ingrese su nueva contraseña" formControlName="newpass"
+                      [type]="hide ? 'password' : 'text'" required>
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div>
+                <!-- <button mat-button matStepperPrevious>Back</button> -->
+                <!-- <button mat-button matStepperNext >Next</button> -->
+                <button mat-button matStepperNext [disabled]="secondFormGroup.invalid">Continuar</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="checkpass">
+            <form [formGroup]="checkpass">
+              <ng-template matStepLabel>Done</ng-template>
+              <mat-checkbox formControlName="check"><strong> Esta seguro del cambio de clave de seguridad.</strong>
+              </mat-checkbox>
+              <div>
+                <button mat-button matStepperPrevious>Atras</button>
+                <button mat-button [disabled]="checkpass.invalid">Guardar</button>
+              </div>
+            </form>
+          </mat-step>
+        </mat-horizontal-stepper>
+
+      </div>
+    </div>
+  </div>
+</div>

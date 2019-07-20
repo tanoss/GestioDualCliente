@@ -1,53 +1,47 @@
-import {CommonModule} from '@angular/common';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {BrowserModule} from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {AuthGuard} from './shared';
-import {ToastrModule} from 'ngx-toastr';
-import {PdfViewerModule} from 'ng2-pdf-viewer';
-import {NgxSpinnerModule} from 'ngx-spinner';
-// AoT requires an exported function for factories
-export const createTranslateLoader = (http: HttpClient) => {
-  /* for development
-  return new TranslateHttpLoader(
-      http,
-      '/start-angular/SB-Admin-BS4-Angular-6/master/dist/assets/i18n/',
-      '.json'
-  ); */
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-};
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app.routing';
+import { ComponentsModule } from './components/components.module';
+import { MaterialModule } from './module/material.module';
+import { AppComponent } from './app.component';
+import { RestService } from './service/rest.service';
+import { HttpClientModule } from "@angular/common/http";
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatIconModule } from '@angular/material/icon'
+import { LoginComponent } from '../app/components/login/login.component';
+import {
+  AgmCoreModule
+} from '@agm/core';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 @NgModule({
   imports: [
-    NgbModule,
-    FormsModule,
-    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot(),
-    PdfViewerModule,
-    NgxSpinnerModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateLoader,
-        deps: [HttpClient]
-      }
-    }),
-    AppRoutingModule
+    LayoutModule,
+    MatIconModule,
+    HttpModule,
+    ComponentsModule,
+    RouterModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
+    })
   ],
-  declarations: [AppComponent],
-  providers: [AuthGuard],
+  declarations: [
+    AppComponent,
+    AdminLayoutComponent,
+    LoginComponent
+  ],
+  providers: [RestService],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

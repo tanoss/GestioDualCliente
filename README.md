@@ -1,22 +1,12 @@
-# Angular7 and Bootstrap 4
+## Terminal Commands
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0 and angular 4.x.
 
-### How to start
+1. Install NodeJs from [NodeJs Official Page](https://nodejs.org/en).
+2. Open Terminal
+3. Go to your file project
+4. Make sure you have installed [Angular CLI](https://github.com/angular/angular-cli) already. If not, please install.
+5. Run in terminal: `npm install`
+6. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-**Note** that this seed project requires **node >=v8.9.0 and npm >=4**.
-
-In order to start the project use:
-
-```bash
-$ git clone https://github.com/tanoss/GestionDualCliente.git
-$ cd GestionDualCliente
-$ npm install
-$ npm start
-# Navigate to `http://localhost:4200/`
-```
-
-## FUNCIONAMENTO
-
-1.- Interfaz
-![Algorithm schema](./src/assets/images/interfaz.PNG)
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

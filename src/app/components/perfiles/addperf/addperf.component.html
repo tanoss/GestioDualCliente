@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Crear Perfil</h2>
+
+<mat-dialog-content>
+    <form (ngSubmit)="addPerfil()" #forma="ngForm">
+        <div>
+                <mat-form-field>
+                        <input matInput [(ngModel)]="centro.perNombre" name="descripcion" type="text" placeholder="Nombre del Perfil" required="Ingrese un nombre de Perfil" minlength="7" >
+                    <mat-error>Mínimo 7 letras /*caracteres especiales NO ADMITIDOS*</mat-error>
+                    </mat-form-field>
+        <br>
+            <mat-form-field>
+                <mat-label>Sistemas</mat-label>
+                <mat-select [(ngModel)]="centro.sisId" name="sisestado"> 
+                  <mat-option *ngFor="let sistema of sistems " value="{{sistema.sisId}}">
+                    {{sistema.sisNombre}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button (click)="cerrarModal()">Cancelar</button>
+    <button [disabled]="!forma.valid" mat-raised-button mat-primary color="primary" (click)="addPerfil()">Agregar</button>
+</mat-dialog-actions>

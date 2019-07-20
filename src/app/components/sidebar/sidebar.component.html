@@ -1,0 +1,31 @@
+<div class="logo">
+    <img class="mx-auto d-block" src="../../../assets/img/its.png" width="75%" />
+</div>
+
+<div class="sidebar-wrapper">
+        <h2 style="text-align: center"><b>MENÚ</b></h2>
+        <hr width="75%">
+    <div class="container">
+        
+        <!-- <a href="" class="simple-text">
+            <div class="logo-img">
+                <img class="logo-espe" src="../../../assets/img/logoESPE.png" />
+            </div> -->
+            <!-- <br>Gestión de Usuarios
+        </a> --> 
+
+        <div class="sidebar-wrapper">
+               
+            <ul class="nav">
+                <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+                    <a class="nav-link" [routerLink]="[menuItem.path]">
+                        <i class="material-icons">{{menuItem.icon}}</i>
+                        <p><b>{{menuItem.title}}</b></p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- <p-toast [style]="{'marginTop': '80px'}" [style.z-index]="9999"></p-toast> -->
+        
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Borrar Perfil</h2>
+<hr>
+<mat-dialog-content>
+    <div>
+        <p>
+            ¿Está segjuro que desea borrar este Perfil?
+            <br>Perfil a Borrar: <strong>{{data.descripcion}}</strong>
+        </p>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button (click)="cerrarModal()">Cancelar</button>
+    <button mat-raised-button mat-primary color="warn" (click)="borrarPerfil(this.data.id)">Borrar</button>
+</mat-dialog-actions>
