@@ -230,7 +230,7 @@ export class PlanMarcoFormacionModel {
     semana: number;
     responsable: string
     prioridad: number;
-    fptraining: fptrainingModel;
+    fptraining?: fptrainingModel;
 
     constructor(){
     this.id = 0;

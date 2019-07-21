@@ -16,7 +16,7 @@ export class PlanMarcoFormacionComponent implements OnInit {
   centros: any;
 
   // Seting Angular Material
-  displayedColumns: string[] = ['id','descripcion','nivelLogroEsperado','nivelLogroAlcanzado','tareas','puestoAprendizaje','semanasTrabajo','semana','responsable','prioridad','fid','opciones'];
+  displayedColumns: string[] = ['id','descripcion','nivelLogroEsperado','nivelLogroAlcanzado','tareas','puestoAprendizaje','semanasTrabajo','semana','responsable','prioridad','opciones'];
   public dataSource = new MatTableDataSource<PlanMarcoFormacionModel>();
   public data: any;
 
@@ -124,7 +124,7 @@ export class PlanMarcoFormacionComponent implements OnInit {
   }
 
   // Editar un Sistema
-  editarCentro(centro: SistemasData) {
+  editarCentro(centro: PlanMarcoFormacionModel) {
     const dialogRef = this.dialog.open(EditplanMarcoFormacionComponent, {
       width: '350px',
       data: {

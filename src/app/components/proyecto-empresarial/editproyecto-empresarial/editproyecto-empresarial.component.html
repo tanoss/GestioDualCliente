@@ -1,3 +1,61 @@
-<p>
-  editproyecto-empresarial works!
-</p>
+<h2 mat-dialog-title>Editar Plan de proyecto empresarial</h2>
+
+<mat-dialog-content>
+  <form (ngSubmit)="actualizarProyEmpresarial()" #forma="ngForm">
+    <div>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.titulo" name="titulo" type="text" placeholder="titulo"
+          required="Ingrese un titulo">
+        <!-- <mat-error>Mínimo 7 letras /*caracteres especiales NO ADMITIDOS*</mat-error> -->
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.analisis" name="analisis" type="text" placeholder="analisis" required>
+        <!-- <mat-error>formato inválido<br>
+                    Ejemplo: www.ejemplo.espe.edu.ec
+                </mat-error> -->
+
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.objetivo" name="objetivo" type="text" placeholder="objetivo" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.descripcion" name="descripcion" type="text" placeholder="descripcion"
+          required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.indicador" name="indicador" type="text" placeholder="indicador" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.medicion" name="medicion" type="text" placeholder="medicion" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.meta" name="meta" type="text" placeholder="meta" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.fuenteDatos" name="fuenteDatos" type="text" placeholder="fuenteDatos"
+          required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.presupuesto" name="presupuesto" type="text" placeholder="presupuesto"
+          required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.beneficiosEsperados" name="beneficiosEsperados" type="text" placeholder="beneficiosEsperados"
+          required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.prioridad" name="prioridad" type="text" placeholder="prioridad "
+          required>
+      </mat-form-field>
+      <!-- <mat-form-field>
+                <input matInput name="fid" type="text" placeholder="Marco de Formacion"  required >  
+            </mat-form-field> -->
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="cerrarModal()">Cancelar</button>
+  <button mat-raised-button mat-primary (click)="actualizarProyEmpresarial()">Actualizar</button>
+</mat-dialog-actions>

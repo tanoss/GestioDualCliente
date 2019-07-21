@@ -20,7 +20,7 @@ export class ProyectoEmpresarialComponent implements OnInit {
   centros: any;
 
   // Seting Angular Material
-  displayedColumns: string[] = ['id', 'titulo', 'analisis','objetivo','descripcion','indicador','medicion','meta','fuenteDatos','presupuesto','beneficiosEsperados','prioridad','fid','opciones'];
+  displayedColumns: string[] = ['id', 'titulo', 'analisis','objetivo','descripcion','indicador','medicion','meta','fuenteDatos','presupuesto','beneficiosEsperados','prioridad','opciones'];
   // displayedColumns: string[] = ['id', 'descripcion', 'duenoObra', 'rut', 'opciones'];
   public dataSource = new MatTableDataSource<PpempresarialModel>();
   public data: any;
@@ -41,8 +41,6 @@ export class ProyectoEmpresarialComponent implements OnInit {
   }
 
   ngOnInit() {
-   
-
     this.cargarCentros();
    
 

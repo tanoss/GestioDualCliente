@@ -1,19 +1,20 @@
-<h2 mat-dialog-title style="text-align: center">Borrar Plan Marco de formación</h2>
-<hr>
+<h2 mat-dialog-title style="text-align: center" >ELIMINAR PLAN MARCO DE FORMACIÓN</h2>
+<hr style="width:90%; border-color: turquoise;">
 <mat-dialog-content>
     <div>
         <p style="text-align: center">
-            ¿Está seguro que desea borrar?
+            <br><b>¿Está seguro que desea borrar?</b>
         </p>
-        <p>
-            <br>Plan Marco de formación: <strong>{{data.descripcion}}</strong>
+        <h6><p>
+            <br>Plan Marco de formación: 
+            <strong>{{data.descripcion}}</strong>
 
         </p>
-        
+    </h6> 
     </div>
 </mat-dialog-content>
 
-<mat-dialog-actions>
-    <button mat-button (click)="cerrarModal()">Cancelar</button>
+<mat-dialog-actions style="justify-content: center">
+    <button mat-raised-button mat-primary color="primary" (click)="cerrarModal()">Cancelar</button>
     <button mat-raised-button mat-primary color="warn" (click)="borrarSistema(this.data.id)">Borrar</button>
 </mat-dialog-actions>

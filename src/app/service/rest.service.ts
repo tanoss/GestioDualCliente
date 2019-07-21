@@ -60,7 +60,7 @@ export class RestService {
   // Funcion unica para actualizar-----------------------------------
   updateData(sistema, upd: String) {
     let sistemaUpdate = JSON.stringify(sistema);
-    return this.http.put(endpoint + upd, sistemaUpdate, http).pipe(
+    return this.http.put(endpoint + upd, sistemaUpdate , http).pipe(
       map((res: any) => {
         return res;
       }, error => {
