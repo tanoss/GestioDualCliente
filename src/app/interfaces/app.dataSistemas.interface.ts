@@ -215,6 +215,36 @@ export class PlanRotacionModel {
     this.prioridad = 0;
     this.fptraining = new fptrainingModel();
  }
+
+ 
+}
+
+export class PlanMarcoFormacionModel {
+    id?: number;
+    descripcion: string;
+    nivelLogroEsperado: number;
+    nivelLogroAlcanzado: number;
+    tareas: string;
+    puestoAprendizaje: string;
+    semanasTrabajo: number;
+    semana: number;
+    responsable: string
+    prioridad: number;
+    fptraining: fptrainingModel;
+
+    constructor(){
+    this.id = 0;
+    this.descripcion = "";
+    this.nivelLogroEsperado = 0;
+    this.nivelLogroAlcanzado = 0;
+    this.tareas= "";
+    this.puestoAprendizaje= "";
+    this.semanasTrabajo= 0;
+    this.semana= 0;
+    this.responsable= "";
+    this.prioridad= 0;
+    this.fptraining = new fptrainingModel();
+ }
 }
 
 

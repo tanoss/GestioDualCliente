@@ -1,3 +1,52 @@
-<p>
-  addplan-marco-formacion works!
-</p>
+<h2 mat-dialog-title>Crear Nuevo Plan de Rotación</h2>
+<mat-dialog-content>
+  <form (ngSubmit)="addSistema()" #forma="ngForm">
+    <div>
+      <mat-form-field>
+        <input matInput [(ngModel)]="pmarcoformacion.descripcion" name="descripcion" type="text"
+          placeholder="descripcion" required="descripcion">
+        <mat-error>Mínimo 7 letras /*caracteres especiales NO ADMITIDOS*</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput [(ngModel)]="pmarcoformacion.nivelLogroEsperado" name="nivelLogroEsperado" type="text"
+          placeholder="nivelLogroEsperado" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="pmarcoformacion.nivelLogroAlcanzado" name="nivelLogroAlcanzado" type="text"
+          placeholder="nivelLogroAlcanzado" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="pmarcoformacion.tareas" name="tareas" type="text"
+          placeholder="tareas" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="pmarcoformacion.puestoAprendizaje" name="puestoAprendizaje" type="text"
+          placeholder="puestoAprendizaje" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="pmarcoformacion.semanasTrabajo" name="semanasTrabajo" type="text"
+          placeholder="semanasTrabajo" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="pmarcoformacion.semana" name="semana" type="text" placeholder="semana" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="pmarcoformacion.responsable" name="responsable" type="text" placeholder="responsable" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="pmarcoformacion.prioridad" name="prioridad" type="text" placeholder="Prioridad" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="pmarcoformacion.fptraining.id" name="werr" type="text" placeholder="Marco de Formacion" required>
+      </mat-form-field>
+    </div>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="cerrarModal()">Cancelar</button>
+  <button [disabled]="!forma.valid" mat-raised-button mat-primary color="primary"
+    (click)="addSistema()">Agregar</button>
+</mat-dialog-actions>
