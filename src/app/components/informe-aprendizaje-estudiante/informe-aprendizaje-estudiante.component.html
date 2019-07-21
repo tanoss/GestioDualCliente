@@ -1,148 +1,114 @@
 <div class="main-content">
-  <!-- <button class="btn btn-outline-warning" *ngIf="!isCollapsed" (click)="toggleCollapse()"> Regresar </button> -->
-
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-12">
-              <div class="card">
-                  <div class="card-header card-header-primary">
-                      <h4 class="card-title"><b>Informe Aprendizaje Estudiante</b></h4>
-                      <p class="card-category"> Informe Aprendizaje Estudiante- ITS Yavirac</p>
-                  </div>
-                  <br>
-
-                  <div class="container-fluid">
-                      <div class="row">
-                          <div class="col-md-12">
-                              <div class="row">
-                                  <div class="col-md-2">
-                                  </div>
-                                  <div class="col-md-8">
-                                      <mat-form-field>
-                                          <input matInput type="text" (keyup)="doFilter($event.target.value)"
-                                              placeholder="Buscar...">
-                                      </mat-form-field>
-                                  </div>
-                                  <div class="col-md-2">
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
-
-
-                  <div class="col-sm-4 col-md-4">
-                      <button mat-raised-button color="primary" (click)="addCentros()">
-                          <mat-icon>add</mat-icon>
-                          <span>Agregar</span>
-                      </button>
-
-
-                  </div>
-
-                  <mat-card *ngIf="mostrarMensajeFiltro">No existen resultados</mat-card>
-                  <!-- <div class="col-sm-12 col-md-12">
-                          <div *ngIf="dataSource" class="mat-elevation-z8"> -->
-                  <table mat-table [(dataSource)]="dataSource" matSort>
-
-                      <!-- Position Column -->
-                      <ng-container matColumnDef="id">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-                          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-                      </ng-container>
-
-                      <!-- Name Column -->
-                      <ng-container matColumnDef="titulo">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Titulo </th>
-                          <td mat-cell *matCellDef="let element"> {{element.titulo}} </td>
-                      </ng-container>
-
-                      <!-- Weight Column -->
-                      <ng-container matColumnDef="analisis">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Analisis </th>
-                          <td mat-cell *matCellDef="let element"> {{element.analisis}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="objetivo">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Objetivo </th>
-                          <td mat-cell *matCellDef="let element"> {{element.objetivo}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="descripcion">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </th>
-                          <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="indicador">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Indicador</th>
-                          <td mat-cell *matCellDef="let element"> {{element.indicador}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="medicion">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Medicion </th>
-                          <td mat-cell *matCellDef="let element"> {{element.medicion}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="meta">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> meta </th>
-                          <td mat-cell *matCellDef="let element"> {{element.meta}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="fuenteDatos">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Fuente de datos </th>
-                          <td mat-cell *matCellDef="let element"> {{element.fuenteDatos}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="presupuesto">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Presupuesto</th>
-                          <td mat-cell *matCellDef="let element"> {{element.presupuesto}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="beneficiosEsperados">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Beneficios Esperados </th>
-                          <td mat-cell *matCellDef="let element"> {{element.beneficiosEsperados}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="prioridad">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Prioridad</th>
-                          <td mat-cell *matCellDef="let element"> {{element.prioridad}} </td>
-                      </ng-container>
-
-                      <ng-container matColumnDef="fid">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> marco de plan de formacion </th>
-                          <td mat-cell *matCellDef="let element"> {{element.frameworkplantraining_id}} </td>
-                      </ng-container>
-                     
-                      <ng-container matColumnDef="opciones">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Opciones </th>
-
-                          <td mat-cell *matCellDef="let element; let i=index;">
-                              <button mat-icon-button color="accent" (click)="editarCentro(element)">
-                                  <mat-icon aria-label="Edit">edit</mat-icon>
-                              </button>
-
-                              <button mat-icon-button color="accent"
-                                  (click)="deleteCentros(i, element.id, element.titulo)">
-                                  <mat-icon aria-label="Delete">delete</mat-icon>
-                              </button>
-                          </td>
-
-                      </ng-container>
-
-                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                  </table>
-                  <br>
-
-                  <mat-paginator class="paginator" [pageSize]="4" [pageSizeOptions]="[4, 6, 10, 50, 100]"
-                      showFirstLastButtons>
-                  </mat-paginator>
-
-              </div>
-
-          </div>
-
-      </div>
+    <!-- <button class="btn btn-outline-warning" *ngIf="!isCollapsed" (click)="toggleCollapse()"> Regresar </button> -->
+  
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title"><b>Informe Aprendizaje Estudiante</b></h4>
+                        <p class="card-category"> Informe Aprendizaje Estudiante- ITS Yavirac</p>
+                    </div>
+                    <br>
+  
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <mat-form-field>
+                                            <input matInput type="text" (keyup)="doFilter($event.target.value)"
+                                                placeholder="Buscar...">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+  
+  
+  
+                    <div class="col-sm-4 col-md-4">
+                        <button mat-raised-button color="primary" (click)="addCentros()">
+                            <mat-icon>add</mat-icon>
+                            <span>Agregar</span>
+                        </button>
+  
+  
+                    </div>
+  
+                    <mat-card *ngIf="mostrarMensajeFiltro">No existen resultados</mat-card>
+                    <!-- <div class="col-sm-12 col-md-12">
+                            <div *ngIf="dataSource" class="mat-elevation-z8"> -->
+                    <table mat-table [(dataSource)]="dataSource" matSort>
+  
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="id">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                        </ng-container>
+  
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="semana">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Semana </th>
+                            <td mat-cell *matCellDef="let element"> {{element.semana}} </td>
+                        </ng-container>
+  
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="calificacion">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Calificacion </th>
+                            <td mat-cell *matCellDef="let element"> {{element.calificacion}} </td>
+                        </ng-container>
+  
+                        <ng-container matColumnDef="fechaEntrega">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de Entrega </th>
+                            <td mat-cell *matCellDef="let element"> {{element.fechaEntrega}} </td>
+                        </ng-container>
+  
+                        <ng-container matColumnDef="reflexion">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Reflexión </th>
+                            <td mat-cell *matCellDef="let element"> {{element.reflexion}} </td>
+                        </ng-container>
+  
+                        <ng-container matColumnDef="observaciones">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Observaciones </th>
+                            <td mat-cell *matCellDef="let element"> {{element.observaciones}} </td>
+                        </ng-container>
+  
+                        <ng-container matColumnDef="opciones">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Opciones </th>
+  
+                            <td mat-cell *matCellDef="let element; let i=index;">
+                                <button mat-icon-button color="accent" (click)="editarCentro(element)">
+                                    <mat-icon aria-label="Edit">edit</mat-icon>
+                                </button>
+  
+                                <button mat-icon-button color="accent"
+                                    (click)="deleteCentros(i, element.id, element.semana,element.calificacion,element.fechaEntrega,element.reflexion,element.observaciones)">
+                                    <mat-icon aria-label="Delete">delete</mat-icon>
+                                </button>
+                            </td>
+  
+                        </ng-container>
+  
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                    <br>
+  
+                    <mat-paginator class="paginator" [pageSize]="4" [pageSizeOptions]="[4, 6, 10, 50, 100]"
+                        showFirstLastButtons>
+                    </mat-paginator>
+  
+                </div>
+  
+            </div>
+  
+        </div>
+    </div>
   </div>
-</div>
+  

@@ -16,7 +16,55 @@ export interface EntidadData {
     direccion: string;
     telefono: string
 }
+//inicializamos los campos
+// informe de aprendizaje tutor
+export class InAprendizajeModel{
+    id?:number;
+    semana: number ;
+    calificacion: number;
+    fechaEntrega: string;
+    reflexion: string;
+    observaciones: string;
+    prioridad: number;
+    fptraining:fptrainingModel;
+    constructor(){
+        this.id=0;
+        this.semana=0;
+        this.calificacion=0;
+        this.fechaEntrega= "";
+        this.reflexion="";
+        this.observaciones="";
+        this.prioridad=0;
+        this.fptraining = new fptrainingModel();
 
+    }
+
+}
+// informe de aprendizaje estudiante
+export class InAprendizajeEstuModel{
+    id?:number;
+    descripcion: string;
+    tipo: string;
+    fecha: string;
+    horaIngreso:string;
+    horaSalida:string;
+    horaAlmuerzo:string;
+    horasTotales:string;
+    prioridad:number;
+    inftutor:InAprendizajeModel;
+    constructor(){
+        this.id=0;
+        this.descripcion="";
+        this.tipo="";
+        this.fecha="";
+        this.horaIngreso="";
+        this.horaSalida="";
+        this.horasTotales="";
+        this.prioridad=0;
+        this.inftutor= new InAprendizajeModel();
+    }
+
+}
 export class Ppempresarial {
     id?: number;
     titulo: string

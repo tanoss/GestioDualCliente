@@ -1,3 +1,44 @@
-<p>
-  addinf-tutor works!
-</p>
+<h2 mat-dialog-title>Calificar Informe de aprendizaje </h2>
+
+<mat-dialog-content>
+    <form (ngSubmit)="addOpcion()" #forma="ngForm">
+
+        <div>
+            <mat-form-field>
+                <input matInput [(ngModel)]="inaprendizaje.semana" name="semana" type="number" placeholder="Semana" required="Ingrese el número de semana">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="inaprendizaje.calificacion" name="calificacion" type="text" placeholder="Calificacion" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="inaprendizaje.fechaEntrega" name="fechaEntrega" type="date" placeholder="Fecha de Entrega" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="inaprendizaje.reflexion" name="reflexion" type="text" placeholder="Reflexión" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="inaprendizaje.observaciones" name="reflexion" type="text" placeholder="Observaciones" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="inaprendizaje.prioridad"  name="see" type="text" placeholder="Prioridad " required  >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="inaprendizaje.fptraining.id" name="werr" type="text" placeholder="Marco de Formacion "  required >  
+            </mat-form-field>
+<!-- 
+            <mat-form-field>
+                <mat-label>Sistemas</mat-label>
+                <mat-select [(ngModel)]="data.sisId" name="sisestado">
+                    <mat-option *ngFor="let sistema of sistems " value="{{sistema.sisId}}">
+                        {{sistema.sisNombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field> -->
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button (click)="cerrarModal()">Cancelar</button>
+    <button [disabled]="!forma.valid" mat-raised-button mat-primary color="primary" (click)="addOpcion()">Agregar</button>
+</mat-dialog-actions>

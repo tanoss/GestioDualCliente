@@ -1,22 +1,37 @@
-<h2 mat-dialog-title>Crear Informe de aprendizaje </h2>
+<h2 mat-dialog-title>Crear Informe de aprendizaje Estudiante </h2>
 
 <mat-dialog-content>
     <form (ngSubmit)="addOpcion()" #forma="ngForm">
 
         <div>
             <mat-form-field>
-                <input matInput [(ngModel)]="data.opcNombre" name="opcNombre" type="text" placeholder="opcNombre "
-                    required>
+                <input matInput [(ngModel)]="inEstuaprendizaje.descripcion" name="descripcion" type="text" placeholder="Descripcion" required>
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="data.opcNivel" name="opcNivel" type="text" placeholder="opcNivel" required>
+                <input matInput [(ngModel)]="inEstuaprendizaje.tipo" name="tipo" type="text" placeholder="Tipo" required>
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="data.opcOrden" name="opcOrden" type="text" placeholder="opcOrden" required>
+                <input matInput [(ngModel)]="inEstuaprendizaje.fecha" name="fecha" type="date" placeholder="Fecha" required>
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="data.opcUrl" name="opcUrl" type="text" placeholder="opcUrl" required>
+                <input matInput [(ngModel)]="inEstuaprendizaje.horaIngreso" name="horaIngreso" type="time" placeholder="Hora de Ingreso" required>
             </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="inEstuaprendizaje.horaSalida" name="horaSalida" type="time" placeholder="Hora de Salida" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="inEstuaprendizaje.horaAlmuerzo"  name="horaAlmuerzo" type="time" placeholder="Hora de Almuerzo" required  >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="inEstuaprendizaje.horasTotales" name="horasTotales" type="number" placeholder="Horas Totales"  required >  
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="inEstuaprendizaje.prioridad" name="prioridad" type="number" placeholder="Prioridad"  required >  
+                </mat-form-field>
+            <mat-form-field>
+                <input matInput [(ngModel)]="inEstuaprendizaje.inftutor.id" name="tutor" type="text" placeholder="Tutor"  required >  
+            </mat-form-field>
+<!-- 
             <mat-form-field>
                 <mat-label>Sistemas</mat-label>
                 <mat-select [(ngModel)]="data.sisId" name="sisestado">
@@ -24,13 +39,12 @@
                         {{sistema.sisNombre}}
                     </mat-option>
                 </mat-select>
-            </mat-form-field>
+            </mat-form-field> -->
         </div>
     </form>
 </mat-dialog-content>
 
 <mat-dialog-actions>
     <button mat-button (click)="cerrarModal()">Cancelar</button>
-    <button [disabled]="!forma.valid" mat-raised-button mat-primary color="primary"
-        (click)="addOpcion()">Agregar</button>
+    <button [disabled]="!forma.valid" mat-raised-button mat-primary color="primary" (click)="addOpcion()">Agregar</button>
 </mat-dialog-actions>
