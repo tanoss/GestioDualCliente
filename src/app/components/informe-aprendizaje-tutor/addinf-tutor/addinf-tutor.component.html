@@ -39,6 +39,6 @@
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button mat-button (click)="cerrarModal()">Cancelar</button>
-    <button [disabled]="!forma.valid" mat-raised-button mat-primary color="primary" (click)="addOpcion()">Agregar</button>
+    <button type="button" class="btn btn-light btn-sm"  data-dismiss="modal" (click)="cerrarModal()">Cancelar</button>
+    <button [disabled]="!forma.valid" type="button" class="btn btn-success btn-sm" (click)="addOpcion()">Agregar</button>
 </mat-dialog-actions>

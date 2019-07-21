@@ -1,4 +1,3 @@
-
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { MatTable } from '@angular/material';
@@ -15,8 +14,6 @@ import { SistemasData,PpempresarialModel, fptrainingModel} from '../../../interf
   styleUrls: ['./addproyecto-empresarial.component.scss']
 })
 export class AddproyectoEmpresarialComponent implements OnInit {
-
-  
   ppempresarial: PpempresarialModel;
   ppempresarials:Array<PpempresarialModel>;
 publicdata

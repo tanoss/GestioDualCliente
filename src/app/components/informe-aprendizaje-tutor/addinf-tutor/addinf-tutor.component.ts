@@ -27,9 +27,9 @@ public dataSave: any;
     this.inaprendizaje= new InAprendizajeModel();
     this.inaprendizajes = new  Array<InAprendizajeModel>()
   }
-  addSistema() {
+  addOpcion() {
     //this.dataService.AddSystems({'business_project_plans':this.ppempresarial,'training_framework_plans':{'id':1}})
-    this.dataService.addData({'business_project_plans':this.inaprendizaje,'training_framework_plans':{'id':this.inaprendizaje.fptraining.id}},'business_project_plans')
+    this.dataService.addData({'learningreports':this.inaprendizaje,'training_framework_plans':{'id':this.inaprendizaje.fptraining.id}},'learningreports')
       .subscribe( response => {
         // window.location.reload();
         // this.cargarCentros();
@@ -45,10 +45,10 @@ public dataSave: any;
 
   }
 
-  // Cierre de Modal
-  cerrarModal() {
-    console.log("cerrarModal()");
-    this.dialogRef.close(false);
-  }
+ // Cierre de Modal
+ cerrarModal() {
+  console.log("cerrarModal()");
+  this.dialogRef.close(false);
+}
 
 }
