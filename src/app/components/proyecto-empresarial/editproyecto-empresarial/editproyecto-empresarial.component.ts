@@ -26,7 +26,8 @@ export class EditproyectoEmpresarialComponent implements OnInit {
   actualizarProyEmpresarial(id) {
     this.dialogRef.close("Guardada!");
     console.log("vas a imprimir",this.data.data);
-    this.Service.updateData(this.data.data, "business_project_plans",id)
+    //this.Service.updateData(this.data.data, "business_project_plans",id)
+    this.Service.updateData({'business_project_plans':this.data.data}, "business_project_plans",id)
     .subscribe( () =>{
       console.log("vas a imprimir",this.data.data);
       }, error => {
