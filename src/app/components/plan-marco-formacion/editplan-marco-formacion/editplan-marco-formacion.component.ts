@@ -23,9 +23,9 @@ export class EditplanMarcoFormacionComponent implements OnInit {
   }
 
   // Método para Actualizar un Centro de Gestión
-  actualizarPlanMarco() {
+  actualizarPlanMarco(id) {
     this.dialogRef.close("Guardada!");
-    this.Service.updateData(this.data.data, "objectives")
+    this.Service.updateData(this.data.data, "objectives",id)
     .subscribe( () =>{
       // console.log();
       }, error => {

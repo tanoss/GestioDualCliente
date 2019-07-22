@@ -133,7 +133,7 @@ export class ProyectoEmpresarialComponent implements OnInit {
   }
 
   // Editar un Sistema
-  editarCentro(centro: SistemasData) {
+  editarCentro(centro:  PpempresarialModel) {
     const dialogRef = this.dialog.open(EditproyectoEmpresarialComponent, {
       width: '350px',
       data: {

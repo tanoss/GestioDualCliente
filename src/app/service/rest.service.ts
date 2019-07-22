@@ -58,9 +58,9 @@ export class RestService {
     );
   }
   // Funcion unica para actualizar-----------------------------------
-  updateData(sistema, upd: String) {
+  updateData(sistema, upd: String,id:number) {
     let sistemaUpdate = JSON.stringify(sistema);
-    return this.http.put(endpoint + upd, sistemaUpdate , http).pipe(
+    return this.http.put(endpoint + upd+"/"+id, sistemaUpdate , http).pipe(
       map((res: any) => {
         return res;
       }, error => {

@@ -23,11 +23,12 @@ export class EditproyectoEmpresarialComponent implements OnInit {
   }
 
   // Método para Actualizar un Centro de Gestión
-  actualizarProyEmpresarial() {
+  actualizarProyEmpresarial(id) {
     this.dialogRef.close("Guardada!");
-    this.Service.updateData(this.data.data, "business_project_plans")
+    console.log("vas a imprimir",this.data.data);
+    this.Service.updateData(this.data.data, "business_project_plans",id)
     .subscribe( () =>{
-      // console.log();
+      console.log("vas a imprimir",this.data.data);
       }, error => {
         console.log("Error al actualizar",error);
       })
