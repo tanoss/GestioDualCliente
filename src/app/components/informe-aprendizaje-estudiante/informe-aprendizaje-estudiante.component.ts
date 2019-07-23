@@ -1,6 +1,6 @@
 import { Component, OnInit,  ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator, MatTableDataSource, MatSort, MatDialog, MatDialogRef } from '@angular/material';
-import { SistemasData, EntidadData, InAprendizajeModel } from '../../interfaces/app.dataSistemas.interface';
+import { SistemasData, InAprendizajeEstuModel } from '../../interfaces/app.dataSistemas.interface';
 import { RestService } from "../../service/rest.service"
 import { BehaviorSubject } from 'rxjs'
 import { AddinfEstudianteComponent } from '../informe-aprendizaje-estudiante/addinf-estudiante/addinf-estudiante.component'
@@ -15,8 +15,8 @@ import { filter } from 'rxjs/internal/operators/filter';
 export class InformeAprendizajeEstudianteComponent implements OnInit {
 
   objeto: any;
-  displayedColumns: string [] = ['id','semena','calificacion','fechaEntrega','reflexion','observaciones'];
-  public dataSource = new MatTableDataSource<InAprendizajeModel>();
+  displayedColumns: string [] = ['id','descripcion','tipo','fecha','horaIngreso','horaSalida','horaAlmuerzo','horasTotales','prioridad','inftutor','opciones'];
+  public dataSource = new MatTableDataSource<InAprendizajeEstuModel>();
   public data: any;
 
   FormAdd: MatDialogRef<AddinfEstudianteComponent>
@@ -24,7 +24,7 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   mostrarMensajeFiltro: boolean;
-  dataCentros: InAprendizajeModel[];
+  dataCentros: InAprendizajeEstuModel[];
   index: number;
   id: number;
 
@@ -48,6 +48,7 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
   ngAfterViewInit() {
     this.setPaginator();
   }
+
   setPaginator() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
@@ -77,7 +78,7 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
 
   }
   cargarCentros() {
-    this.api.getData('business_project_plans').subscribe((data: any) => {
+    this.api.getData('activitylearningreports').subscribe((data: any) => {
       //data acumula todo dato que el servicio tenga
       this.data = data;
       console.log("cargarCentros... " + this.data);
@@ -137,7 +138,7 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
 
   // Borrar un Centro de Gestión
   // deleteCentros(index: number, id: number, descripcion: string, duenoObra: string, rut: string) {
-  deleteCentros(index: number, id: number, semana: number, calificacion:number, fechaEntrega:Date,reflexion:string,observaciones:string) {
+  deleteCentros(index: number, id: number, descripcion:string) {
     this.index = index;
     this.id = id;
 
@@ -146,17 +147,9 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
       data: {
         index: index,
         id: id,
-        semana: semana,
-        calificacion: calificacion,
-        fechaEntrega: fechaEntrega,
-        reflexion: reflexion,
-        observaciones: observaciones,
-        
+        descripcion:descripcion, 
       }
-
-
     });
-
 
 
     dialogRef.afterClosed().subscribe(result => {
@@ -171,3 +164,4 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
   }
 
 }
+

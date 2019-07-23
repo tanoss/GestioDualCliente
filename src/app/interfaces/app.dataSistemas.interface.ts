@@ -29,7 +29,7 @@ export class InAprendizajeModel{
     fptraining:fptrainingModel;
     constructor(){
         this.id=0;
-        this.semana=0;
+        this.semana=1;
         this.calificacion=0;
         this.fechaEntrega= "";
         this.reflexion="";
@@ -59,6 +59,7 @@ export class InAprendizajeEstuModel{
         this.fecha="";
         this.horaIngreso="";
         this.horaSalida="";
+        this.horaAlmuerzo="";
         this.horasTotales="";
         this.prioridad=0;
         this.inftutor= new InAprendizajeModel();

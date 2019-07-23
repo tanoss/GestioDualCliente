@@ -29,7 +29,7 @@
                 <input matInput [(ngModel)]="inEstuaprendizaje.prioridad" name="prioridad" type="number" placeholder="Prioridad"  required >  
                 </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="inEstuaprendizaje.inftutor.id" name="tutor" type="text" placeholder="Tutor"  required >  
+                <input matInput [(ngModel)]="inEstuaprendizaje.inftutor.id" name="tutor" type="number" placeholder="Informe de aprendizaje Tutor"  required >  
             </mat-form-field>
 <!-- 
             <mat-form-field>
@@ -45,6 +45,6 @@
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button mat-button (click)="cerrarModal()">Cancelar</button>
-    <button [disabled]="!forma.valid" mat-raised-button mat-primary color="primary" (click)="addOpcion()">Agregar</button>
+    <button type="button" class="btn btn-light btn-sm"  data-dismiss="modal" (click)="cerrarModal()">Cancelar</button>
+    <button [disabled]="!forma.valid" type="button" class="btn btn-success btn-sm" (click)="addOpcion()">Agregar</button>
 </mat-dialog-actions>
