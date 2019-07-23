@@ -1,3 +1,37 @@
-<p>
-  editinf-tutor works!
-</p>
+<h2 mat-dialog-title>Editar Informe aprendiazaje Tutor</h2>
+
+<mat-dialog-content>
+  <form (ngSubmit)="actualizarInfometutor()" #forma="ngForm">
+    <div>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.semana" name="titulo" type="text" placeholder="titulo"
+          required="Ingrese un titulo">
+        <!-- <mat-error>Mínimo 7 letras /*caracteres especiales NO ADMITIDOS*</mat-error> -->
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.calificacion" name="analisis" type="text" placeholder="analisis" required>
+
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.fechaEntrega" name="objetivo" type="text" placeholder="objetivo" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.reflexion" name="descripcion" type="text" placeholder="descripcion"
+          required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.observaciones" name="indicador" type="text" placeholder="indicador" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.prioridad" name="medicion" type="text" placeholder="medicion" required>
+      </mat-form-field>
+     
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="cerrarModal()">Cancelar</button>
+  <button mat-raised-button mat-primary (click)="actualizarInfometutor(data.data.id)">Actualizar</button>
+</mat-dialog-actions>

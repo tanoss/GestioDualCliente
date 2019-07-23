@@ -20,6 +20,8 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
   public data: any;
 
   FormAdd: MatDialogRef<AddinfEstudianteComponent>
+  FormEdit: MatDialogRef<EditinfEstudianteComponent>
+  FormDel: MatDialogRef<DelinfEstudianteComponent>
   @ViewChild(MatDialog) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -88,6 +90,16 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
       console.log(error);
     });
   }
+  cargarIaestudiante() {
+    this.api.getData("activitylearningreports").subscribe(
+      (data: InAprendizajeEstuModel[]) => {
+        this.dataSource.data =data;
+    }, error => {
+      console.log(error);
+    }
+    );
+  }
+
    // Agrega un Centro
    addCentros() {
 
@@ -96,13 +108,12 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
       data: {}
     });
 
-    this.FormAdd.afterClosed().pipe(
-      filter(res => res)
-    ).subscribe(res => {
+    this.FormAdd.afterClosed().subscribe(res => {
       //recibe data desde dialogo add
       //controlar aquí si dialogo tiene algún error
       let target: any = {};
       target = res;
+      this.cargarIaestudiante();
 
       //al parecer el servicio no trae los datos actualizados, por ende agrego el registro con push al array
       //que estamos tomando como recurso para iniciar el dataSource
@@ -116,22 +127,23 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
   }
 
   // Editar un Sistema
-  editarCentro(centro: SistemasData) {
-    const dialogRef = this.dialog.open(EditinfEstudianteComponent, {
+  editarCentro(centro: InAprendizajeEstuModel) {
+    this.FormEdit = this.dialog.open(EditinfEstudianteComponent, {
       width: '350px',
       data: {
         data: centro
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    this.FormEdit.afterClosed().subscribe(result => {
       console.log('Dialog closed');
       console.log(result);
       let target: any = {};
-      
+     
+
       this.data.push(target);
       this.setData();
-
+      this.cargarIaestudiante();
       // this.pageRefresh();
     });
   }
@@ -142,7 +154,7 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
     this.index = index;
     this.id = id;
 
-    const dialogRef = this.dialog.open(DelinfEstudianteComponent, {
+    this.FormDel = this.dialog.open(DelinfEstudianteComponent, {
       width: '500px',
       data: {
         index: index,
@@ -152,9 +164,10 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
     });
 
 
-    dialogRef.afterClosed().subscribe(result => {
+    this.FormDel.afterClosed().subscribe(result => {
       console.log('Dialog closed');
       console.log(result);
+      this.cargarIaestudiante();
       //this.pageRefresh();
 
     });

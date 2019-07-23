@@ -20,7 +20,7 @@ export class DelinfTutorComponent implements OnInit {
  // Método para Borrar un Centro de Gestión
  borrarSistema(id: number){
   this.dialogRef.close("Informe de aprendizaje Borrado!");
-  this.Service.deleteData( this.data.id,"learningreports").subscribe( () => {
+  this.Service.deleteData( id,"learningreports").subscribe( () => {
     // this.cargarCentros();
     console.log(this.data.id);
   });

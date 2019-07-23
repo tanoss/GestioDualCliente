@@ -6,6 +6,7 @@ import { AddplanRotacionComponent } from '../plan-rotacion/addplan-rotacion/addp
 import { EditplanRotacionComponent } from '../plan-rotacion/editplan-rotacion/editplan-rotacion.component';
 import { DelplanRotacionComponent } from '../plan-rotacion/delplan-rotacion/delplan-rotacion.component';
 import { filter } from 'rxjs/internal/operators/filter';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-plan-rotacion',
@@ -23,6 +24,9 @@ export class PlanRotacionComponent implements OnInit {
 
   //declaracion de dialogos
   FormAdd: MatDialogRef<AddplanRotacionComponent>
+  FormDel: MatDialogRef<DelplanRotacionComponent>
+  FormEdit: MatDialogRef<EditplanRotacionComponent>
+  
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -96,18 +100,24 @@ export class PlanRotacionComponent implements OnInit {
       console.log(error);
     });
   }
+  cargarpr() {
+    this.api.getData("rotation_plans").subscribe(
+      (data: PlanRotacionModel[]) => {
+        this.dataSource.data =data;
+    }, error => {
+      console.log(error);
+    }
+    );
+  }
 
   // Agrega un Centro
   addCentros() {
-
     this.FormAdd = this.dialog.open(AddplanRotacionComponent, {
       width: '350px',
       data: {}
     });
 
-    this.FormAdd.afterClosed().pipe(
-      filter(res => res)
-    ).subscribe(res => {
+    this.FormAdd.afterClosed().subscribe(res => {
       //recibe data desde dialogo add
       //controlar aquí si dialogo tiene algún error
       let target: any = {};
@@ -116,8 +126,8 @@ export class PlanRotacionComponent implements OnInit {
       //al parecer el servicio no trae los datos actualizados, por ende agrego el registro con push al array
       //que estamos tomando como recurso para iniciar el dataSource
 
-      this.data.push(target);
-      this.setData();
+      
+      this.cargarpr();
 
     });
 
@@ -125,7 +135,7 @@ export class PlanRotacionComponent implements OnInit {
   }
 
   // Editar un Sistema
-  editarCentro(centro: SistemasData) {
+  editarCentro(centro: PlanRotacionModel) {
     const dialogRef = this.dialog.open(EditplanRotacionComponent, {
       width: '350px',
       data: {
@@ -133,11 +143,11 @@ export class PlanRotacionComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    this.FormEdit.afterClosed().subscribe(result => {
       console.log('Dialog closed');
       console.log(result);
       let target: any = {};
-      
+      this.cargarpr();
       this.data.push(target);
       this.setData();
 
@@ -147,44 +157,28 @@ export class PlanRotacionComponent implements OnInit {
 
   // Borrar un Centro de Gestión
   // deleteCentros(index: number, id: number, descripcion: string, duenoObra: string, rut: string) {
-  deleteCentros(index: number, id: number, titulo: string, ) {
+  
+ 
+  deleteCentros(index: number, id: number, titulo: string) {
     this.index = index;
     this.id = id;
-    const dialogRef = this.dialog.open(DelplanRotacionComponent, {
+    this.FormDel = this.dialog.open(DelplanRotacionComponent, {
       width: '500px',
       data: {
         index: index,
         id: id,
         descripcion: titulo,
-        
       }
-
-
     });
 
-    //   dialogRef.afterClosed().subscribe(result => {
-    //    this.refreshTable();
-    //   });
-    // }
-    // private refreshTable() {
-    //   //this.paginator._changePageSize(this.paginator.pageSize);
-    //   this.dataSource.paginator = this.paginator;
-
-    // }
-
-    // pageRefresh(){
-    //   location.reload();
-    // }
-
-
-    dialogRef.afterClosed().subscribe(result => {
+    this.FormDel.afterClosed().subscribe(result => {
       console.log('Dialog closed');
       console.log(result);
+      this.cargarpr();
       //this.pageRefresh();
 
     });
   }
-  pageRefresh() {
-    location.reload();
-  }
+
+
 }

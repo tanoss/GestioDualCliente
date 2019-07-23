@@ -13,12 +13,15 @@ import { filter } from 'rxjs/internal/operators/filter';
   styleUrls: ['./informe-aprendizaje-tutor.component.scss']
 })
 export class InformeAprendizajeTutorComponent implements OnInit {
-  objeto: any;
-  displayedColumns: string [] = ['id','semana','calificacion','fechaEntrega','reflexion','observaciones','prioridad','fid','opciones'];
+  centros: any;
+  displayedColumns: string [] = ['id','semana','calificacion','fechaEntrega','reflexion','observaciones','prioridad','opciones'];
   public dataSource = new MatTableDataSource<InAprendizajeModel>();
   public data: any;
 
   FormAdd: MatDialogRef<AddinfTutorComponent>
+  FormEdit: MatDialogRef<EditinfTutorComponent>
+  FormDel: MatDialogRef<DelinfTutorComponent>
+
   @ViewChild(MatDialog) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
@@ -86,6 +89,17 @@ export class InformeAprendizajeTutorComponent implements OnInit {
       console.log(error);
     });
   }
+
+  cargariat() {
+    this.api.getData("learningreports").subscribe(
+      (data: InAprendizajeModel[]) => {
+        this.dataSource.data =data;
+    }, error => {
+      console.log(error);
+    }
+    );
+  }
+
    // Agrega un Centro
    addCentros() {
 
@@ -94,35 +108,29 @@ export class InformeAprendizajeTutorComponent implements OnInit {
       data: {}
     });
 
-    this.FormAdd.afterClosed().pipe(
-      filter(res => res)
-    ).subscribe(res => {
-      //recibe data desde dialogo add
-      //controlar aquí si dialogo tiene algún error
+    this.FormAdd.afterClosed().subscribe(res => {
+
       let target: any = {};
       target = res;
-
-      //al parecer el servicio no trae los datos actualizados, por ende agrego el registro con push al array
-      //que estamos tomando como recurso para iniciar el dataSource
-
+      this.cargariat();
       this.data.push(target);
       this.setData();
-
+      
     });
 
 
   }
 
   // Editar un Sistema
-  editarCentro(centro: SistemasData) {
-    const dialogRef = this.dialog.open(EditinfTutorComponent, {
+  editarCentro(centro: InAprendizajeModel) {
+    this.FormEdit = this.dialog.open(EditinfTutorComponent, {
       width: '350px',
       data: {
         data: centro
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    this.FormEdit.afterClosed().subscribe(result => {
       console.log('Dialog closed');
       console.log(result);
       let target: any = {};
@@ -140,7 +148,7 @@ export class InformeAprendizajeTutorComponent implements OnInit {
     this.index = index;
     this.id = id;
 
-    const dialogRef = this.dialog.open(DelinfTutorComponent, {
+    this.FormDel = this.dialog.open(DelinfTutorComponent, {
       width: '500px',
       data: {
         index: index,
@@ -149,9 +157,10 @@ export class InformeAprendizajeTutorComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    this.FormDel.afterClosed().subscribe(result => {
       console.log('Dialog closed');
       console.log(result);
+      this. cargariat();
       //this.pageRefresh();
 
     });

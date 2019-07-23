@@ -21,8 +21,8 @@ export class DelproyectoEmpresarialComponent implements OnInit {
 
   // Método para Borrar un Centro de Gestión
   borrarSistema(id: number){
-    this.dialogRef.close("Centro de Gestión Borrado!");
-    this.Service.deleteData( this.data.id,"business_project_plans").subscribe( () => {
+    this.dialogRef.close(" Borrado!");
+    this.Service.deleteData(id,"business_project_plans").subscribe( () => {
       // this.cargarCentros();
       console.log(this.data.id);
     });

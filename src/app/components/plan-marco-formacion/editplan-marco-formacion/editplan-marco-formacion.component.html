@@ -5,15 +5,11 @@
         <div>
             <mat-form-field>
                 <input matInput [(ngModel)]="data.data.descripcion"  name="descripcion" type="text" placeholder="descripcion" required="Ingrese un nombre de sistema" >
-            <mat-error>Mínimo 7 letras /*caracteres especiales NO ADMITIDOS*</mat-error>
+            <mat-error>*</mat-error>
             </mat-form-field>
             <br>
             <mat-form-field>
                 <input matInput  [(ngModel)]="data.data.nivelLogroEsperado"  name="nivelLogroEsperado" type="text" placeholder="nivelLogroEsperado" required >  
-                <!-- <mat-error>formato inválido<br>
-                    Ejemplo: www.ejemplo.espe.edu.ec
-                </mat-error> -->
-
             </mat-form-field>
             <mat-form-field>
                 <input matInput  [(ngModel)]="data.data.nivelLogroAlcanzado"  name="nivelLogroAlcanzado" type="text" placeholder="nivelLogroAlcanzado"  required   >  
@@ -45,5 +41,5 @@
 
 <mat-dialog-actions>
     <button mat-button (click)="cerrarModal()">Cancelar</button>
-    <button mat-raised-button mat-primary (click)="actualizarPlanMarco()">Actualizar</button>
+    <button mat-raised-button mat-primary (click)="actualizarPlanMarco(data.data.id)">Actualizar</button>
 </mat-dialog-actions>

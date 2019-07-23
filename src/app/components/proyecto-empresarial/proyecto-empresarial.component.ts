@@ -27,6 +27,8 @@ export class ProyectoEmpresarialComponent implements OnInit {
 
   //declaracion de dialogos
   FormAdd: MatDialogRef<AddproyectoEmpresarialComponent>
+  FormDel: MatDialogRef<DelproyectoEmpresarialComponent>
+  FormEdit: MatDialogRef<EditproyectoEmpresarialComponent>
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -105,6 +107,16 @@ export class ProyectoEmpresarialComponent implements OnInit {
     });
   }
 
+  cargarbp() {
+    this.api.getData("business_project_plans").subscribe(
+      (data: PpempresarialModel[]) => {
+        this.dataSource.data =data;
+    }, error => {
+      console.log(error);
+    }
+    );
+  }
+
   // Agrega un Centro
   addCentros() {
 
@@ -113,9 +125,7 @@ export class ProyectoEmpresarialComponent implements OnInit {
       data: {}
     });
 
-    this.FormAdd.afterClosed().pipe(
-      filter(res => res)
-    ).subscribe(res => {
+    this.FormAdd.afterClosed().subscribe(res => {
       //recibe data desde dialogo add
       //controlar aquí si dialogo tiene algún error
       let target: any = {};
@@ -124,8 +134,9 @@ export class ProyectoEmpresarialComponent implements OnInit {
       //al parecer el servicio no trae los datos actualizados, por ende agrego el registro con push al array
       //que estamos tomando como recurso para iniciar el dataSource
 
-      this.data.push(target);
-      this.setData();
+      // this.data.push(target);
+      // this.setData();
+      this.cargarbp();
 
     });
 
@@ -141,13 +152,14 @@ export class ProyectoEmpresarialComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    this.FormEdit.afterClosed().subscribe(result => {
       console.log('Dialog closed');
       console.log(result);
       let target: any = {};
       
       this.data.push(target);
       this.setData();
+      this.cargarbp();
 
       // this.pageRefresh();
     });
@@ -155,44 +167,24 @@ export class ProyectoEmpresarialComponent implements OnInit {
 
   // Borrar un Centro de Gestión
   // deleteCentros(index: number, id: number, descripcion: string, duenoObra: string, rut: string) {
-  deleteCentros(index: number, id: number, titulo: string, ) {
+  deleteCentros(index: number, id: number, titulo: string) {
     this.index = index;
     this.id = id;
-    const dialogRef = this.dialog.open(DelproyectoEmpresarialComponent, {
+    this.FormDel = this.dialog.open(DelproyectoEmpresarialComponent, {
       width: '500px',
       data: {
         index: index,
         id: id,
         descripcion: titulo,
-        
       }
-
-
     });
 
-    //   dialogRef.afterClosed().subscribe(result => {
-    //    this.refreshTable();
-    //   });
-    // }
-    // private refreshTable() {
-    //   //this.paginator._changePageSize(this.paginator.pageSize);
-    //   this.dataSource.paginator = this.paginator;
-
-    // }
-
-    // pageRefresh(){
-    //   location.reload();
-    // }
-
-
-    dialogRef.afterClosed().subscribe(result => {
+    this.FormDel.afterClosed().subscribe(result => {
       console.log('Dialog closed');
       console.log(result);
+      this.cargarbp();
       //this.pageRefresh();
 
     });
-  }
-  pageRefresh() {
-    location.reload();
   }
 }

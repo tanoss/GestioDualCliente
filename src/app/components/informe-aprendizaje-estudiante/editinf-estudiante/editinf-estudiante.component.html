@@ -1,3 +1,45 @@
-<p>
-  editinf-estudiante works!
-</p>
+<h2 mat-dialog-title>Editar Informe aprendiazaje Estudiante</h2>
+
+<mat-dialog-content>
+  <form (ngSubmit)="actualizarInfomeEstudiante()" #forma="ngForm">
+    <div>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.descripcion" name="titulo" type="text" placeholder="titulo"
+          required="Ingrese un titulo">
+        <!-- <mat-error>Mínimo 7 letras /*caracteres especiales NO ADMITIDOS*</mat-error> -->
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.tipo" name="analisis" type="text" placeholder="analisis" required>
+
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.fecha" name="objetivo" type="text" placeholder="objetivo" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.horaIngreso" name="descripcion" type="text" placeholder="descripcion"
+          required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.horaSalida" name="indicador" type="text" placeholder="indicador" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.horaAlmuerzo" name="medicion" type="text" placeholder="medicion" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.horasTotales" name="horastotales" type="text" placeholder="medicion" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.prioridad" name="prioridad" type="text" placeholder="medicion" required>
+      </mat-form-field>
+     
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="cerrarModal()">Cancelar</button>
+  <button mat-raised-button mat-primary (click)="actualizarInfomeEstudiante(data.data.id)">Actualizar</button>
+</mat-dialog-actions>

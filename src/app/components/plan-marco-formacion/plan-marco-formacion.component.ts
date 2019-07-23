@@ -22,6 +22,8 @@ export class PlanMarcoFormacionComponent implements OnInit {
 
   //declaracion de dialogos
   FormAdd: MatDialogRef<AddplanMarcoFormacionComponent>
+  FormEdit: MatDialogRef<EditplanMarcoFormacionComponent>
+  FormDel: MatDialogRef<DelplanMarcoFormacionComponent>
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -96,6 +98,15 @@ export class PlanMarcoFormacionComponent implements OnInit {
     });
   }
 
+  cargarmf() {
+    this.api.getData("objectives").subscribe(
+      (data: PlanMarcoFormacionModel[]) => {
+        this.dataSource.data =data;
+    }, error => {
+      console.log(error);
+    }
+    );
+  }
   // Agrega un Centro
   addCentros() {
 
@@ -104,13 +115,12 @@ export class PlanMarcoFormacionComponent implements OnInit {
       data: {}
     });
 
-    this.FormAdd.afterClosed().pipe(
-      filter(res => res)
-    ).subscribe(res => {
+    this.FormAdd.afterClosed().subscribe(res => {
       //recibe data desde dialogo add
       //controlar aquí si dialogo tiene algún error
       let target: any = {};
       target = res;
+      this.cargarmf();
 
       //al parecer el servicio no trae los datos actualizados, por ende agrego el registro con push al array
       //que estamos tomando como recurso para iniciar el dataSource
@@ -125,20 +135,21 @@ export class PlanMarcoFormacionComponent implements OnInit {
 
   // Editar un Sistema
   editarCentro(centro: PlanMarcoFormacionModel) {
-    const dialogRef = this.dialog.open(EditplanMarcoFormacionComponent, {
+    this.FormEdit = this.dialog.open(EditplanMarcoFormacionComponent, {
       width: '350px',
       data: {
         data: centro
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    this.FormEdit .afterClosed().subscribe(result => {
       console.log('Dialog closed');
       console.log(result);
       let target: any = {};
       
       this.data.push(target);
       this.setData();
+      //this.cargarmf();
 
       // this.pageRefresh();
     });
@@ -149,7 +160,7 @@ export class PlanMarcoFormacionComponent implements OnInit {
   deleteCentros(index: number, id: number, descripcion: string, ) {
     this.index = index;
     this.id = id;
-    const dialogRef = this.dialog.open(DelplanMarcoFormacionComponent, {
+    this.FormDel = this.dialog.open(DelplanMarcoFormacionComponent, {
       width: '500px',
       data: {
         index: index,
@@ -161,25 +172,13 @@ export class PlanMarcoFormacionComponent implements OnInit {
 
     });
 
-    //   dialogRef.afterClosed().subscribe(result => {
-    //    this.refreshTable();
-    //   });
-    // }
-    // private refreshTable() {
-    //   //this.paginator._changePageSize(this.paginator.pageSize);
-    //   this.dataSource.paginator = this.paginator;
-
-    // }
-
-    // pageRefresh(){
-    //   location.reload();
-    // }
 
 
-    dialogRef.afterClosed().subscribe(result => {
+    this.FormDel.afterClosed().subscribe(result => {
       console.log('Dialog closed');
       console.log(result);
-      //this.pageRefresh();
+      this.cargarmf();
+      
 
     });
   }
