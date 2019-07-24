@@ -118,8 +118,9 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
       //al parecer el servicio no trae los datos actualizados, por ende agrego el registro con push al array
       //que estamos tomando como recurso para iniciar el dataSource
 
-      this.data.push(target);
-      this.setData();
+      // this.data.push(target);
+      // this.setData();
+      
 
     });
 
@@ -139,11 +140,11 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
       console.log('Dialog closed');
       console.log(result);
       let target: any = {};
-     
+      this.cargarIaestudiante();
 
       this.data.push(target);
       this.setData();
-      this.cargarIaestudiante();
+      
       // this.pageRefresh();
     });
   }

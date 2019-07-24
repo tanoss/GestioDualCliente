@@ -113,8 +113,8 @@ export class InformeAprendizajeTutorComponent implements OnInit {
       let target: any = {};
       target = res;
       this.cargariat();
-      this.data.push(target);
-      this.setData();
+      // this.data.push(target);
+      // this.setData();
       
     });
 
@@ -134,9 +134,11 @@ export class InformeAprendizajeTutorComponent implements OnInit {
       console.log('Dialog closed');
       console.log(result);
       let target: any = {};
-      
       this.data.push(target);
-      this.setData();
+      // this.setData();
+      // this.cargariat();
+      // this.data.push(target);
+      // this.setData();
 
       // this.pageRefresh();
     });

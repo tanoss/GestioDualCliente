@@ -21,9 +21,10 @@ export class DelplanRotacionComponent implements OnInit {
 
   // Método para Borrar un Centro de Gestión
   borrarSistema(id: number){
-    this.dialogRef.close("Plan de rotación Borrado!");
+    
     this.Service.deleteData(id,"rotation_plans").subscribe( () => {
       // this.cargarCentros();
+      this.dialogRef.close("Plan de rotación Borrado!");
       console.log(this.data.id);
     });
     // this.onCloseConfirm();

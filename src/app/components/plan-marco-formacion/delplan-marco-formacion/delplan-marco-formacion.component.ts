@@ -21,10 +21,11 @@ export class DelplanMarcoFormacionComponent implements OnInit {
 
   // Método para Borrar un Centro de Gestión
   borrarSistema(id: number){
-    this.dialogRef.close("Centro de Gestión Borrado!");
+   
     this.Service.deleteData( id,"objectives").subscribe( () => {
       // this.cargarCentros();
       console.log(this.data.id);
+      this.dialogRef.close("Centro de Gestión Borrado!");
     });
     // this.onCloseConfirm();
   }

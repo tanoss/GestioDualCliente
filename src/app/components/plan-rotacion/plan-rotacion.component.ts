@@ -148,8 +148,8 @@ export class PlanRotacionComponent implements OnInit {
       console.log(result);
       let target: any = {};
       this.cargarpr();
-      this.data.push(target);
-      this.setData();
+      // this.data.push(target);
+      // this.setData();
 
       // this.pageRefresh();
     });

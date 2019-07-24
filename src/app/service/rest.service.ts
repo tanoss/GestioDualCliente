@@ -44,8 +44,6 @@ export class RestService {
       })
     );
   }
-
-  
   // Funcion unica para guargar---------------------------------------
   addData(sistema, add: String) {
     let sistemaAdd = JSON.stringify(sistema);
