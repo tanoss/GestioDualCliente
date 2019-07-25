@@ -5,35 +5,35 @@
   <form (ngSubmit)="actualizarInfomeEstudiante()" #forma="ngForm">
     <div>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.descripcion" name="titulo" type="text" placeholder="titulo"
+        <input matInput [(ngModel)]="data.data.descripcion" name="titulo" type="text" placeholder="Descripción"
           required="Ingrese un titulo">
         <!-- <mat-error>Mínimo 7 letras /*caracteres especiales NO ADMITIDOS*</mat-error> -->
       </mat-form-field>
       <br>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.tipo" name="analisis" type="text" placeholder="analisis" required>
+        <input matInput [(ngModel)]="data.data.tipo" name="analisis" type="text" placeholder="Tipo" required>
 
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.fecha" name="objetivo" type="text" placeholder="objetivo" required>
+        <input matInput [(ngModel)]="data.data.fecha" name="objetivo" type="time" placeholder="Hora de Ingreso" required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.horaIngreso" name="descripcion" type="text" placeholder="descripcion"
+        <input matInput [(ngModel)]="data.data.horaIngreso" name="descripcion" type="time" placeholder="Hora de Salida"
           required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.horaSalida" name="indicador" type="text" placeholder="indicador" required>
+        <input matInput [(ngModel)]="data.data.horaSalida" name="indicador" type="time" placeholder="Hora de Almuerzo" required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.horaAlmuerzo" name="medicion" type="text" placeholder="medicion" required>
-      </mat-form-field>
-
-      <mat-form-field>
-        <input matInput [(ngModel)]="data.data.horasTotales" name="horastotales" type="text" placeholder="medicion" required>
+        <input matInput [(ngModel)]="data.data.horaAlmuerzo" name="medicion" type="number" placeholder="Horas Totales" required>
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.prioridad" name="prioridad" type="text" placeholder="medicion" required>
+        <input matInput [(ngModel)]="data.data.horasTotales" name="horastotales" type="number" placeholder="Prioridad" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.data.prioridad" name="prioridad" type="number" placeholder="Tutor" required>
       </mat-form-field>
      
     </div>

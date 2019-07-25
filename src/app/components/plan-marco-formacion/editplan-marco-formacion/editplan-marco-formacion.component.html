@@ -5,32 +5,32 @@
     <form (ngSubmit)="actualizarPlanMarco()" #forma="ngForm">
         <div>
             <mat-form-field>
-                <input matInput [(ngModel)]="data.data.descripcion"  name="descripcion" type="text" placeholder="descripcion" required="Ingrese un nombre de sistema" >
+                <input matInput [(ngModel)]="data.data.descripcion"  name="descripcion" type="text" placeholder="Descripción" required="Ingrese un nombre de sistema" >
             </mat-form-field>
             <br>
             <mat-form-field>
-                <input matInput  [(ngModel)]="data.data.nivelLogroEsperado"  name="nivelLogroEsperado" type="text" placeholder="nivelLogroEsperado" required >  
+                <input matInput  [(ngModel)]="data.data.nivelLogroEsperado"  name="nivelLogroEsperado" type="number" placeholder="Nivel de Logro Esperado" required >  
             </mat-form-field>
             <mat-form-field>
-                <input matInput  [(ngModel)]="data.data.nivelLogroAlcanzado"  name="nivelLogroAlcanzado" type="text" placeholder="nivelLogroAlcanzado"  required   >  
+                <input matInput  [(ngModel)]="data.data.nivelLogroAlcanzado"  name="nivelLogroAlcanzado" type="number" placeholder="Nivel de Logro Alcanzado"  required   >  
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="data.data.tareas"  name="tareas" type="text" placeholder="tareas"  required  >  
+                <input matInput [(ngModel)]="data.data.tareas"  name="tareas" type="text" placeholder="Tareas"  required  >  
             </mat-form-field>
             <mat-form-field>
-                <input matInput  [(ngModel)]="data.data.puestoAprendizaje"  name="puestoAprendizaje" type="text" placeholder="puestoAprendizaje" required >  
+                <input matInput  [(ngModel)]="data.data.puestoAprendizaje"  name="puestoAprendizaje" type="text" placeholder="Puesto de Aprendizaje" required >  
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="data.data.semanasTrabajo" name="semanasTrabajo" type="text" placeholder="semanasTrabajo"  required  >  
+                <input matInput [(ngModel)]="data.data.semanasTrabajo" name="semanasTrabajo" type="text" placeholder="Semanas de Trabajo"  required  >  
             </mat-form-field>
             <mat-form-field>
-                <input matInput  [(ngModel)]="data.data.semana" name="semana" type="text" placeholder="semana"  required >  
+                <input matInput  [(ngModel)]="data.data.semana" name="semana" type="number" placeholder="Semana"  required >  
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="data.data.responsable" name="responsable" type="text" placeholder="responsable"  required  >  
+                <input matInput [(ngModel)]="data.data.responsable" name="responsable" type="text" placeholder="Responsable"  required  >  
             </mat-form-field>
             <mat-form-field>
-                <input matInput  [(ngModel)]="data.data.prioridad" name="prioridad" type="text" placeholder="prioridad " required  >  
+                <input matInput  [(ngModel)]="data.data.prioridad" name="prioridad" type="number" placeholder="Prioridad " required  >  
             </mat-form-field>
             <!-- <mat-form-field>
                 <input matInput name="fid" type="text" placeholder="Marco de Formacion"  required >  

@@ -5,27 +5,27 @@
   <form (ngSubmit)="actualizarInfometutor()" #forma="ngForm">
     <div>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.semana" name="titulo" type="text" placeholder="titulo"
+        <input matInput [(ngModel)]="data.data.semana" name="titulo" type="number" placeholder="Semana"
           required="Ingrese un titulo">
         <!-- <mat-error>Mínimo 7 letras /*caracteres especiales NO ADMITIDOS*</mat-error> -->
       </mat-form-field>
       <br>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.calificacion" name="analisis" type="text" placeholder="analisis" required>
+        <input matInput [(ngModel)]="data.data.calificacion" name="analisis" type="text" placeholder="Calificación" required>
 
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.fechaEntrega" name="objetivo" type="text" placeholder="objetivo" required>
+        <input matInput [(ngModel)]="data.data.fechaEntrega" name="objetivo" type="text" placeholder="Fecha de Entrega" required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.reflexion" name="descripcion" type="text" placeholder="descripcion"
+        <input matInput [(ngModel)]="data.data.reflexion" name="descripcion" type="text" placeholder="Reflexión"
           required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.observaciones" name="indicador" type="text" placeholder="indicador" required>
+        <input matInput [(ngModel)]="data.data.observaciones" name="indicador" type="text" placeholder="Observaciones" required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.prioridad" name="medicion" type="text" placeholder="medicion" required>
+        <input matInput [(ngModel)]="data.data.prioridad" name="medicion" type="number" placeholder="Prioridad" required>
       </mat-form-field>
      
     </div>

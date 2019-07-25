@@ -4,21 +4,21 @@
     <form (ngSubmit)="addSistema()" #forma="ngForm">
         <div>
             <mat-form-field>
-                <input matInput [(ngModel)]="protacion.conocimientosTeoricos" name="descripcion" type="text" placeholder="conocimientosTeoricos" required="conocimientosTeoricos" >
+                <input matInput [(ngModel)]="protacion.conocimientosTeoricos" name="descripcion" type="text" placeholder="Conocimientos Teóricos" required="conocimientosTeoricos" >
             <mat-error>Mínimo 7 letras /*caracteres especiales NO ADMITIDOS*</mat-error>
             </mat-form-field>
             <br>
             <mat-form-field>
-                <input matInput [(ngModel)]="protacion.conocimientosProcedimentales" name="url" type="text" placeholder="conocimientosProcedimentales" required >  
+                <input matInput [(ngModel)]="protacion.conocimientosProcedimentales" name="url" type="text" placeholder="Conocimientos Procedimentales" required >  
             </mat-form-field>
             <mat-form-field>
-                <input matInput  [(ngModel)]="protacion.conocimientosActitudinales" name="u" type="text" placeholder="conocimientosActitudinales"  required   >  
+                <input matInput  [(ngModel)]="protacion.conocimientosActitudinales" name="u" type="text" placeholder="Conocimientos Actitudinales"  required   >  
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="protacion.prioridad" name="rl" type="text" placeholder="Prioridad"  required  >  
+                <input matInput [(ngModel)]="protacion.prioridad" name="rl" type="number" placeholder="Prioridad"  required  >  
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="protacion.fptraining.id" name="werr" type="text" placeholder="Marco de Formacion "  required >  
+                <input matInput [(ngModel)]="protacion.fptraining.id" name="werr" type="number" placeholder="Marco de Formación "  required >  
             </mat-form-field>
         </div>
 

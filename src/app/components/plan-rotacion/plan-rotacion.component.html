@@ -16,14 +16,16 @@
                           <div class="col-md-12">
                               <div class="row">
                                   <div class="col-md-2">
-                                        <mat-label>Selcione a un estudiante</mat-label>
+                                  </div>
+                                  <div class="col-md-3">
+                                        <mat-label>Seleccione un Estudiante</mat-label>
                                         <mat-select [(ngModel)]=estudiante1.id name="estud">
                                           <mat-option *ngFor="let estudiante of estudiantes" value="{{estudiante.id}}">
                                             {{estudiante.nombre1}} {{estudiante.apellido1}}      
                                           </mat-option>
                                         </mat-select>
                                   </div>
-                                  <div class="col-md-8">
+                                  <div class="col-md-4">
                                       <mat-form-field>
                                           <input matInput type="text" (keyup)="doFilter($event.target.value)"
                                               placeholder="Buscar...">
@@ -60,7 +62,7 @@
 
                       <!-- Name Column -->
                       <ng-container matColumnDef="conocimientosTeoricos">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Conocimientos teóricos</th>
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Conocimientos Teóricos</th>
                           <td mat-cell *matCellDef="let element"> {{element.conocimientosTeoricos}} </td>
                       </ng-container>
 
@@ -80,7 +82,7 @@
                           <td mat-cell *matCellDef="let element"> {{element.prioridad}} </td>
                       </ng-container>
                       <ng-container matColumnDef="fid">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> marco de plan de formacion </th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Marco de Plan de Formación </th>
                         <td mat-cell *matCellDef="let element"> {{element.training_framework_plan.id}} </td>
                     </ng-container>
                       <ng-container matColumnDef="opciones">
@@ -107,11 +109,8 @@
                   <mat-paginator class="paginator" [pageSize]="4" [pageSizeOptions]="[4, 6, 10, 50, 100]"
                       showFirstLastButtons>
                   </mat-paginator>
-
               </div>
-
           </div>
-
       </div>
   </div>
 </div>

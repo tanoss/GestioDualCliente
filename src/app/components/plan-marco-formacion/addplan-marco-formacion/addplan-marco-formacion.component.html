@@ -5,41 +5,41 @@
     <div>
       <mat-form-field>
         <input matInput [(ngModel)]="pmarcoformacion.descripcion" name="descripcion" type="text"
-          placeholder="descripcion" required="descripcion">
+          placeholder="Descripción" required="descripcion">
         <mat-error>Mínimo 7 letras /*caracteres especiales NO ADMITIDOS*</mat-error>
       </mat-form-field>
       <br>
       <mat-form-field>
         <input matInput [(ngModel)]="pmarcoformacion.nivelLogroEsperado" name="nivelLogroEsperado" type="text"
-          placeholder="nivelLogroEsperado" required>
+          placeholder="Nivel de Logro Esperado" required>
       </mat-form-field>
       <mat-form-field>
         <input matInput [(ngModel)]="pmarcoformacion.nivelLogroAlcanzado" name="nivelLogroAlcanzado" type="text"
-          placeholder="nivelLogroAlcanzado" required>
+          placeholder="Nivel de Logro Alcanzado" required>
       </mat-form-field>
       <mat-form-field>
         <input matInput [(ngModel)]="pmarcoformacion.tareas" name="tareas" type="text"
-          placeholder="tareas" required>
+          placeholder="Tareas" required>
       </mat-form-field>
       <mat-form-field>
         <input matInput [(ngModel)]="pmarcoformacion.puestoAprendizaje" name="puestoAprendizaje" type="text"
-          placeholder="puestoAprendizaje" required>
+          placeholder="Puesto de Aprendizaje" required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="pmarcoformacion.semanasTrabajo" name="semanasTrabajo" type="text"
-          placeholder="semanasTrabajo" required>
+        <input matInput [(ngModel)]="pmarcoformacion.semanasTrabajo" name="semanasTrabajo" type="number"
+          placeholder="Semanas de Trabajo" required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="pmarcoformacion.semana" name="semana" type="text" placeholder="semana" required>
+        <input matInput [(ngModel)]="pmarcoformacion.semana" name="semana" type="number" placeholder="Semana" required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="pmarcoformacion.responsable" name="responsable" type="text" placeholder="responsable" required>
+        <input matInput [(ngModel)]="pmarcoformacion.responsable" name="responsable" type="text" placeholder="Responsable" required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="pmarcoformacion.prioridad" name="prioridad" type="text" placeholder="Prioridad" required>
+        <input matInput [(ngModel)]="pmarcoformacion.prioridad" name="prioridad" type="number" placeholder="Prioridad" required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="pmarcoformacion.fptraining.id" name="werr" type="text" placeholder="Marco de Formacion" required>
+        <input matInput [(ngModel)]="pmarcoformacion.fptraining.id" name="werr" type="number" placeholder="Marco de Formacion" required>
       </mat-form-field>
     </div>
 

@@ -4,48 +4,48 @@
   <form (ngSubmit)="actualizarProyEmpresarial()" #forma="ngForm">
     <div>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.titulo" name="titulo" type="text" placeholder="titulo"
+        <input matInput [(ngModel)]="data.data.titulo" name="titulo" type="text" placeholder="Título"
           required="Ingrese un titulo">
         <!-- <mat-error>Mínimo 7 letras /*caracteres especiales NO ADMITIDOS*</mat-error> -->
       </mat-form-field>
       <br>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.analisis" name="analisis" type="text" placeholder="analisis" required>
+        <input matInput [(ngModel)]="data.data.analisis" name="analisis" type="text" placeholder="Análisis" required>
         <!-- <mat-error>formato inválido<br>
                     Ejemplo: www.ejemplo.espe.edu.ec
                 </mat-error> -->
 
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.objetivo" name="objetivo" type="text" placeholder="objetivo" required>
+        <input matInput [(ngModel)]="data.data.objetivo" name="objetivo" type="text" placeholder="Objetivo" required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.descripcion" name="descripcion" type="text" placeholder="descripcion"
+        <input matInput [(ngModel)]="data.data.descripcion" name="descripcion" type="text" placeholder="Descripción"
           required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.indicador" name="indicador" type="text" placeholder="indicador" required>
+        <input matInput [(ngModel)]="data.data.indicador" name="indicador" type="text" placeholder="Indicador" required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.medicion" name="medicion" type="text" placeholder="medicion" required>
+        <input matInput [(ngModel)]="data.data.medicion" name="medicion" type="text" placeholder="Medición" required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.meta" name="meta" type="text" placeholder="meta" required>
+        <input matInput [(ngModel)]="data.data.meta" name="meta" type="text" placeholder="Meta" required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.fuenteDatos" name="fuenteDatos" type="text" placeholder="fuenteDatos"
+        <input matInput [(ngModel)]="data.data.fuenteDatos" name="fuenteDatos" type="text" placeholder="Fuente de Datos"
           required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.presupuesto" name="presupuesto" type="text" placeholder="presupuesto"
+        <input matInput [(ngModel)]="data.data.presupuesto" name="presupuesto" type="number" placeholder="Presupuesto"
           required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.beneficiosEsperados" name="beneficiosEsperados" type="text" placeholder="beneficiosEsperados"
+        <input matInput [(ngModel)]="data.data.beneficiosEsperados" name="beneficiosEsperados" type="text" placeholder="Beneficios Esperados"
           required>
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="data.data.prioridad" name="prioridad" type="text" placeholder="prioridad "
+        <input matInput [(ngModel)]="data.data.prioridad" name="prioridad" type="number" placeholder=" Prioridad "
           required>
       </mat-form-field>
       <!-- <mat-form-field>

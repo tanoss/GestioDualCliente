@@ -16,14 +16,16 @@
                           <div class="col-md-12">
                               <div class="row">
                                   <div class="col-md-2">
-                                      <mat-label>Selcione a un estudiante</mat-label>
-                                      <mat-select [(ngModel)]=estudiante1.id name="estud">
-                                          <mat-option *ngFor="let estudiante of estudiantes" value="{{estudiante.id}}">
-                                             {{estudiante.nombre1}} {{estudiante.apellido1}}      
-                                          </mat-option>
-                                      </mat-select>
                                   </div>
-                                  <div class="col-md-8">
+                                  <div class="col-md-3">
+                                        <mat-label>Seleccione un Estudiante</mat-label>
+                                        <mat-select [(ngModel)]=estudiante1.id name="estud">
+                                            <mat-option *ngFor="let estudiante of estudiantes" value="{{estudiante.id}}">
+                                               {{estudiante.nombre1}} {{estudiante.apellido1}}      
+                                            </mat-option>
+                                        </mat-select>
+                                    </div>
+                                  <div class="col-md-4">
                                       <mat-form-field>
                                           <input matInput type="text" (keyup)="doFilter($event.target.value)"
                                               placeholder="Buscar...">
@@ -60,13 +62,13 @@
 
                       <!-- Name Column -->
                       <ng-container matColumnDef="titulo">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Titulo </th>
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Título </th>
                           <td mat-cell *matCellDef="let element"> {{element.titulo}} </td>
                       </ng-container>
 
                       <!-- Weight Column -->
                       <ng-container matColumnDef="analisis">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Analisis </th>
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Análisis </th>
                           <td mat-cell *matCellDef="let element"> {{element.analisis}} </td>
                       </ng-container>
 
@@ -76,7 +78,7 @@
                       </ng-container>
 
                       <ng-container matColumnDef="descripcion">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </th>
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </th>
                           <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
                       </ng-container>
 
@@ -86,12 +88,12 @@
                       </ng-container>
 
                       <ng-container matColumnDef="medicion">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Medicion </th>
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Medición </th>
                           <td mat-cell *matCellDef="let element"> {{element.medicion}} </td>
                       </ng-container>
 
                       <ng-container matColumnDef="meta">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> meta </th>
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Meta </th>
                           <td mat-cell *matCellDef="let element"> {{element.meta}} </td>
                       </ng-container>
 
@@ -101,7 +103,7 @@
                       </ng-container>
 
                       <ng-container matColumnDef="presupuesto">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Presupuesto</th>
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Presupuesto </th>
                           <td mat-cell *matCellDef="let element"> {{element.presupuesto}} </td>
                       </ng-container>
 
@@ -111,7 +113,7 @@
                       </ng-container>
 
                       <ng-container matColumnDef="prioridad">
-                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Prioridad</th>
+                          <th mat-header-cell *matHeaderCellDef mat-sort-header> Prioridad </th>
                           <td mat-cell *matCellDef="let element"> {{element.prioridad}} </td>
                       </ng-container>
 
