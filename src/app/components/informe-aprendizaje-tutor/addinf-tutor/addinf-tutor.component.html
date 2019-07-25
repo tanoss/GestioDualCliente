@@ -1,4 +1,5 @@
-<h2 mat-dialog-title>Calificar Informe de aprendizaje </h2>
+<h2 mat-dialog-title style="text-align: center">Crear Informe de Aprendizaje</h2>
+<hr style="width:90%; border-color: turquoise;">
 
 <mat-dialog-content>
     <form (ngSubmit)="addOpcion()" #forma="ngForm">
@@ -38,7 +39,7 @@
     </form>
 </mat-dialog-content>
 
-<mat-dialog-actions>
-    <button type="button" class="btn btn-light btn-sm"  data-dismiss="modal" (click)="cerrarModal()">Cancelar</button>
-    <button [disabled]="!forma.valid" type="button" class="btn btn-success btn-sm" (click)="addOpcion()">Agregar</button>
+<mat-dialog-actions style="justify-content: center">
+    <button mat-raised-button mat-primary color="primary" (click)="cerrarModal()">Cancelar</button>
+    <button [disabled]="!forma.valid" mat-raised-button mat-primary color="warn" (click)="addOpcion()">Agregar</button>
 </mat-dialog-actions>

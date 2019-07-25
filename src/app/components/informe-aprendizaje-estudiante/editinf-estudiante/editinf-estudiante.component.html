@@ -1,4 +1,5 @@
-<h2 mat-dialog-title>Editar Informe aprendiazaje Estudiante</h2>
+<h2 mat-dialog-title style="text-align: center">Editar Informe de Aprendizaje</h2>
+<hr style="width:90%; border-color: turquoise;">
 
 <mat-dialog-content>
   <form (ngSubmit)="actualizarInfomeEstudiante()" #forma="ngForm">
@@ -39,7 +40,7 @@
   </form>
 </mat-dialog-content>
 
-<mat-dialog-actions>
-  <button mat-button (click)="cerrarModal()">Cancelar</button>
-  <button mat-raised-button mat-primary (click)="actualizarInfomeEstudiante(data.data.id)">Actualizar</button>
+<mat-dialog-actions style="justify-content: center">
+  <button mat-raised-button mat-primary color="primary" (click)="cerrarModal()">Cancelar</button>
+  <button mat-raised-button mat-primary color="warn" (click)="actualizarInfomeEstudiante(data.data.id)">Actualizar</button>
 </mat-dialog-actions>

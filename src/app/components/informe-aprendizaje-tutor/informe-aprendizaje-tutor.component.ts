@@ -22,7 +22,7 @@ export class InformeAprendizajeTutorComponent implements OnInit {
   FormEdit: MatDialogRef<EditinfTutorComponent>
   FormDel: MatDialogRef<DelinfTutorComponent>
 
-  @ViewChild(MatDialog) paginator: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   mostrarMensajeFiltro: boolean;

@@ -1,15 +1,19 @@
-<h2 mat-dialog-title>Borrar Plan de rotación</h2>
-<hr>
+<h2 mat-dialog-title style="text-align: center" >ELIMINAR PLAN DE ROTACIÓN</h2>
+<hr style="width:90%; border-color: turquoise;">
 <mat-dialog-content>
     <div>
-        <p>
-            ¿Está seguro que desea borrar este Plan de rotación?
-            <br>Plan de Rotación: <strong>{{data.id}}</strong>
+        <p style="text-align: center">
+            <br><b>¿Está seguro que desea borrar?</b>
         </p>
+        <h6><p>
+            <br>Plan de rotación: 
+            <strong>{{data.descripcion}}</strong>
+
+        </p>
+    </h6> 
     </div>
 </mat-dialog-content>
-
-<mat-dialog-actions>
-    <button mat-button (click)="cerrarModal()">Cancelar</button>
-    <button mat-raised-button mat-primary color="warn" (click)=" borrarSistema(this.data.id)">Borrar</button>
+<mat-dialog-actions style="justify-content: center">
+    <button mat-raised-button mat-primary color="primary" (click)="cerrarModal()">Cancelar</button>
+    <button mat-raised-button mat-primary color="warn" (click)="borrarSistema(this.data.id)">Borrar</button>
 </mat-dialog-actions>

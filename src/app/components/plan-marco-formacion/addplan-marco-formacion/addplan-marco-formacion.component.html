@@ -1,4 +1,5 @@
-<h2 mat-dialog-title>Crear Nuevo Plan de Rotación</h2>
+<h2 mat-dialog-title style="text-align: center" >Crear Nuevo Plan Marco de Formación</h2>
+<hr style="width:90%; border-color: turquoise;">
 <mat-dialog-content>
   <form (ngSubmit)="addSistema()" #forma="ngForm">
     <div>
@@ -44,9 +45,8 @@
 
   </form>
 </mat-dialog-content>
-
-<mat-dialog-actions>
-  <button mat-button (click)="cerrarModal()">Cancelar</button>
+<mat-dialog-actions style="justify-content: center">
+  <button mat-raised-button mat-primary color="primary" (click)="cerrarModal()">Cancelar</button>
   <button [disabled]="!forma.valid" mat-raised-button mat-primary color="primary"
     (click)="addSistema()">Agregar</button>
 </mat-dialog-actions>
