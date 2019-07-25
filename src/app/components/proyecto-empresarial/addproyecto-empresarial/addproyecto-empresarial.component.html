@@ -4,36 +4,44 @@
     <form (ngSubmit)="addSistema()" #forma="ngForm">
         <div>
             <mat-form-field>
-                <input matInput [(ngModel)]="ppempresarial.titulo" name="descripcion" type="text" placeholder="Título" required="Ingrese un nombre de sistema" >
-            <mat-error>Mínimo 7 letras /*caracteres especiales NO ADMITIDOS*</mat-error>
+                <input matInput [(ngModel)]="ppempresarial.titulo" name="descripcion" minlength="3" type="text" placeholder="Título" minlength="3" required="Ingrese un nombre de sistema" >
+                <mat-error>Mínimo requerido: 3 caracteres </mat-error>
             </mat-form-field>
             <br>
             <mat-form-field>
-                <input matInput [(ngModel)]="ppempresarial.analisis" name="url" type="text" placeholder="Análisis" required >  
+                <input matInput [(ngModel)]="ppempresarial.analisis" name="url" minlength="3" type="text" placeholder="Análisis" required >  
+                <mat-error>Mínimo requerido: 3 caracteres </mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput  [(ngModel)]="ppempresarial.objetivo" name="u" type="text" placeholder="Objetivo"  required   >  
+                <input matInput  [(ngModel)]="ppempresarial.objetivo" name="u" minlength="3" type="text" placeholder="Objetivo"  required   >  
+                <mat-error>Mínimo requerido: 3 caracteres </mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="ppempresarial.descripcion" name="rl" type="text" placeholder="Descripción"  required  >  
+                <input matInput [(ngModel)]="ppempresarial.descripcion" name="rl" minlength="3" type="text" placeholder="Descripción"  required  >  
+                <mat-error>Mínimo requerido: 3 caracteres </mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="ppempresarial.indicador"  name="l" type="text" placeholder="Indicador" required >  
+                <input matInput [(ngModel)]="ppempresarial.indicador"  name="l" minlength="3" type="text" placeholder="Indicador" required >  
+                <mat-error>Mínimo requerido: 3 caracteres </mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="ppempresarial.medicion" name="ur" type="text" placeholder="Medición"  required  >  
+                <input matInput [(ngModel)]="ppempresarial.medicion" name="ur" minlength="3" type="text" placeholder="Medición"  required  >  
+                <mat-error>Mínimo requerido: 3 caracteres </mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="ppempresarial.meta" name="re" type="text" placeholder="Meta"  required >  
+                <input matInput [(ngModel)]="ppempresarial.meta" name="re" type="text" minlength="3" placeholder="Meta"  required >  
+                <mat-error>Mínimo requerido: 3 caracteres </mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="ppempresarial.fuenteDatos" name="ee" type="text" placeholder="Fuente de Datos"  required  >  
+                <input matInput [(ngModel)]="ppempresarial.fuenteDatos" name="ee" type="text" minlength="3" placeholder="Fuente de Datos"  required  >  
+                <mat-error>Mínimo requerido: 3 caracteres </mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input matInput [(ngModel)]="ppempresarial.presupuesto" name="wr" type="number" placeholder="Presupuesto " required  >  
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="ppempresarial.beneficiosEsperados" name="wrr" type="text" placeholder="Beneficios Esperado" required  >  
+                <input matInput [(ngModel)]="ppempresarial.beneficiosEsperados" name="wrr" minlength="3" type="text" placeholder="Beneficios Esperado" required  >  
+                <mat-error>Mínimo requerido: 3 caracteres </mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input matInput [(ngModel)]="ppempresarial.prioridad"  name="see" type="number" placeholder="Prioridad " required  >  

@@ -4,15 +4,17 @@
     <form (ngSubmit)="addSistema()" #forma="ngForm">
         <div>
             <mat-form-field>
-                <input matInput [(ngModel)]="protacion.conocimientosTeoricos" name="descripcion" type="text" placeholder="Conocimientos Teóricos" required="conocimientosTeoricos" >
-            <mat-error>Mínimo 7 letras /*caracteres especiales NO ADMITIDOS*</mat-error>
+                <input matInput [(ngModel)]="protacion.conocimientosTeoricos" name="descripcion" type="text" placeholder="Conocimientos Teóricos" minlength="3" required="conocimientosTeoricos" >
+                <mat-error>Mínimo requerido: 3 caracteres </mat-error>
             </mat-form-field>
             <br>
             <mat-form-field>
-                <input matInput [(ngModel)]="protacion.conocimientosProcedimentales" name="url" type="text" placeholder="Conocimientos Procedimentales" required >  
+                <input matInput [(ngModel)]="protacion.conocimientosProcedimentales" name="url" type="text" placeholder="Conocimientos Procedimentales" minlength="3" required >
+                <mat-error>Mínimo requerido: 3 caracteres </mat-error>  
             </mat-form-field>
             <mat-form-field>
-                <input matInput  [(ngModel)]="protacion.conocimientosActitudinales" name="u" type="text" placeholder="Conocimientos Actitudinales"  required   >  
+                <input matInput  [(ngModel)]="protacion.conocimientosActitudinales" name="u" type="text" placeholder="Conocimientos Actitudinales" minlength="3"  required   >  
+                <mat-error>Mínimo requerido: 3 caracteres </mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input matInput [(ngModel)]="protacion.prioridad" name="rl" type="number" placeholder="Prioridad"  required  >  

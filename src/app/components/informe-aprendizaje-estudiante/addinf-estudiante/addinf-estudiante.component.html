@@ -6,7 +6,8 @@
 
         <div>
             <mat-form-field>
-                <input matInput [(ngModel)]="inEstuaprendizaje.descripcion" name="descripcion" type="text" placeholder="Descripción" required>
+                <input matInput [(ngModel)]="inEstuaprendizaje.descripcion" name="descripcion" type="text" placeholder="Descripción" minlength="3" required>
+                <mat-error>Mínimo 3 caracteres</mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input matInput [(ngModel)]="inEstuaprendizaje.tipo" name="tipo" type="text" placeholder="Tipo" required>

@@ -6,7 +6,8 @@
 
         <div>
             <mat-form-field>
-                <input matInput [(ngModel)]="inaprendizaje.semana" name="semana" type="number" placeholder="Semana" required="Ingrese el número de semana">
+                <input matInput [(ngModel)]="inaprendizaje.semana" name="semana" type="number" placeholder="Semana"  pattern="^[0-9]*$" required="Ingrese el número de semana">
+                <mat-error>valores enteros sin decimales</mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input matInput [(ngModel)]="inaprendizaje.calificacion" name="calificacion" type="number" placeholder="Calificación" required>
