@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource, MatSort, MatDialog, MatDialogRef } from '@angular/material';
-import { SistemasData, EntidadData, PlanRotacionModel } from '../../interfaces/app.dataSistemas.interface';
+import { SistemasData, EntidadData, PlanRotacionModel, Student } from '../../interfaces/app.dataSistemas.interface';
 import { RestService } from "../../service/rest.service";
 import { AddplanRotacionComponent } from '../plan-rotacion/addplan-rotacion/addplan-rotacion.component'
 import { EditplanRotacionComponent } from '../plan-rotacion/editplan-rotacion/editplan-rotacion.component';
@@ -16,6 +16,15 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class PlanRotacionComponent implements OnInit {
 
   centros: any;
+  estudiantes: any =[];
+  estudiante1: Student={
+    id:0,
+    identificacion:"",
+    nombre:"",
+    nombre2:"",
+    apellido1:"",
+    apellido2:"",
+  }
 
   // Seting Angular Material
   displayedColumns: string[] = ['id','conocimientosTeoricos','conocimientosProcedimentales','conocimientosActitudinales','prioridad','fid','opciones'];
@@ -40,6 +49,7 @@ export class PlanRotacionComponent implements OnInit {
 
   ngOnInit() {
     this.cargarCentros();
+    this.cargarestudiante();
   }
 
   // Buscador/Filtro en Tabla
@@ -108,6 +118,11 @@ export class PlanRotacionComponent implements OnInit {
       console.log(error);
     }
     );
+  }
+  cargarestudiante(){
+    this.api.getData("business_project_plans/students").subscribe((data:{})=>{
+      this.estudiantes = data
+    })
   }
 
   // Agrega un Centro

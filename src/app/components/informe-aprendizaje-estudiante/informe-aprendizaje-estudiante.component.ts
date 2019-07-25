@@ -1,6 +1,6 @@
 import { Component, OnInit,  ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator, MatTableDataSource, MatSort, MatDialog, MatDialogRef } from '@angular/material';
-import { SistemasData, InAprendizajeEstuModel } from '../../interfaces/app.dataSistemas.interface';
+import { SistemasData, InAprendizajeEstuModel,InAprendizajeModel, informe } from '../../interfaces/app.dataSistemas.interface';
 import { RestService } from "../../service/rest.service"
 import { BehaviorSubject } from 'rxjs'
 import { AddinfEstudianteComponent } from '../informe-aprendizaje-estudiante/addinf-estudiante/addinf-estudiante.component'
@@ -18,6 +18,13 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
   displayedColumns: string [] = ['id','descripcion','tipo','fecha','horaIngreso','horaSalida','horaAlmuerzo','horasTotales','prioridad','inftutor','opciones'];
   public dataSource = new MatTableDataSource<InAprendizajeEstuModel>();
   public data: any;
+  informes:any =[];
+
+  informe :informe={
+    id:0,
+    semana:0
+  }
+
 
   FormAdd: MatDialogRef<AddinfEstudianteComponent>
   FormEdit: MatDialogRef<EditinfEstudianteComponent>
@@ -36,6 +43,7 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
 
   ngOnInit() {
     this.cargarCentros();
+    this.cargarinforme();
   }
   doFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLocaleLowerCase();
@@ -98,6 +106,12 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
       console.log(error);
     }
     );
+  }
+
+  cargarinforme(){
+    this.api.getData("learningreports").subscribe((data:{})=>{
+      this.informes = data
+    })
   }
 
    // Agrega un Centro

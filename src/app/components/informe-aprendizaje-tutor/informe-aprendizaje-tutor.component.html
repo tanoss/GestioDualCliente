@@ -16,6 +16,12 @@
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-2">
+                                            <mat-label>Selcione a un estudiante</mat-label>
+                                            <mat-select [(ngModel)]=estudiante1.id name="estud">
+                                              <mat-option *ngFor="let estudiante of estudiantes" value="{{estudiante.id}}">
+                                                {{estudiante.nombre1}} {{estudiante.apellido1}}      
+                                              </mat-option>
+                                            </mat-select>
                                     </div>
                                     <div class="col-md-8">
                                         <mat-form-field>

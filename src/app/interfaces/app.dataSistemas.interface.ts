@@ -16,17 +16,31 @@ export interface EntidadData {
     direccion: string;
     telefono: string
 }
+
+export class Student{
+    id?:number;
+    identificacion:string;
+    nombre:string;
+    nombre2:string;
+    apellido1:string;
+    apellido2:string;
+}
+
+export class informe{
+    id?:number;
+    semana:number;
+}
 //inicializamos los campos
 // informe de aprendizaje tutor
 export class InAprendizajeModel{
     id?:number;
-    semana: number ;
-    calificacion: number;
-    fechaEntrega: string;
-    reflexion: string;
-    observaciones: string;
-    prioridad: number;
-    fptraining:fptrainingModel;
+    semana?: number ;
+    calificacion?: number;
+    fechaEntrega?: string;
+    reflexion?: string;
+    observaciones?: string;
+    prioridad?: number;
+    fptraining?:fptrainingModel;
     constructor(){
         this.id=0;
         this.semana=1;

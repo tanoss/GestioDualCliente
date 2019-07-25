@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator, MatTableDataSource, MatSort, MatDialog, MatDialogRef } from '@angular/material';
-import { SistemasData, EntidadData, PpempresarialModel } from '../../interfaces/app.dataSistemas.interface';
+import {PpempresarialModel, Student } from '../../interfaces/app.dataSistemas.interface';
 import { RestService } from "../../service/rest.service"
 import { BehaviorSubject } from 'rxjs'
 // import { AddsisComponent } from '../sistemas/addsis/addsis.component'
@@ -18,6 +18,15 @@ import { filter } from 'rxjs/internal/operators/filter';
 export class ProyectoEmpresarialComponent implements OnInit {
 
   centros: any;
+  estudiantes: any =[];
+  estudiante1: Student={
+    id:0,
+    identificacion:"",
+    nombre:"",
+    nombre2:"",
+    apellido1:"",
+    apellido2:"",
+  }
 
   // Seting Angular Material
   displayedColumns: string[] = ['id', 'titulo', 'analisis','objetivo','descripcion','indicador','medicion','meta','fuenteDatos','presupuesto','beneficiosEsperados','prioridad','opciones'];
@@ -44,6 +53,8 @@ export class ProyectoEmpresarialComponent implements OnInit {
 
   ngOnInit() {
     this.cargarCentros();
+    this.cargarestudiante()
+    console.log(this.estudiantes);
    
 
   }
@@ -115,6 +126,12 @@ export class ProyectoEmpresarialComponent implements OnInit {
       console.log(error);
     }
     );
+  }
+
+  cargarestudiante(){
+    this.api.getData("business_project_plans/students").subscribe((data:{})=>{
+      this.estudiantes = data
+    })
   }
 
   // Agrega un Centro

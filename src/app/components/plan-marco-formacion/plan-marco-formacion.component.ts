@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource, MatSort, MatDialog, MatDialogRef } from '@angular/material';
-import { SistemasData, PlanMarcoFormacionModel } from '../../interfaces/app.dataSistemas.interface';
+import { SistemasData, PlanMarcoFormacionModel, Student } from '../../interfaces/app.dataSistemas.interface';
 import { RestService } from "../../service/rest.service";
 import { filter } from 'rxjs/internal/operators/filter';
 import { AddplanMarcoFormacionComponent } from './addplan-marco-formacion/addplan-marco-formacion.component';
@@ -14,6 +14,16 @@ import { DelplanMarcoFormacionComponent } from './delplan-marco-formacion/delpla
 export class PlanMarcoFormacionComponent implements OnInit {
 
   centros: any;
+  estudiantes: any =[];
+  estudiante1: Student={
+    id:0,
+    identificacion:"",
+    nombre:"",
+    nombre2:"",
+    apellido1:"",
+    apellido2:"",
+  }
+
 
   // Seting Angular Material
   displayedColumns: string[] = ['id','descripcion','nivelLogroEsperado','nivelLogroAlcanzado','tareas','puestoAprendizaje','semanasTrabajo','semana','responsable','prioridad','opciones'];
@@ -37,6 +47,7 @@ export class PlanMarcoFormacionComponent implements OnInit {
 
   ngOnInit() {
     this.cargarCentros();
+    this.cargarestudiante();
   }
 
   // Buscador/Filtro en Tabla
@@ -106,6 +117,12 @@ export class PlanMarcoFormacionComponent implements OnInit {
       console.log(error);
     }
     );
+  }
+
+  cargarestudiante(){
+    this.api.getData("business_project_plans/students").subscribe((data:{})=>{
+      this.estudiantes = data
+    })
   }
   // Agrega un Centro
   addCentros() {
