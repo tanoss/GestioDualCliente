@@ -46,13 +46,18 @@
                           <span>Agregar</span>
                       </button>
 
+                      <button mat-raised-button color="primary" (click)="donwloadPDF()">
+                        <mat-icon>archive</mat-icon>
+                        <span>  Descargar Pdf</span>
+                    </button>
+
 
                   </div>
 
                   <mat-card *ngIf="mostrarMensajeFiltro">No existen resultados</mat-card>
                   <!-- <div class="col-sm-12 col-md-12">
                           <div *ngIf="dataSource" class="mat-elevation-z8"> -->
-                  <table mat-table [(dataSource)]="dataSource" matSort>
+                  <table id="reuniones" mat-table [(dataSource)]="dataSource" matSort >
 
                       <!-- Position Column -->
                       <ng-container matColumnDef="id">

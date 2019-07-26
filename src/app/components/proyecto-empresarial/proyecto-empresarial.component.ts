@@ -10,6 +10,8 @@ import { AddproyectoEmpresarialComponent } from '../proyecto-empresarial/addproy
 import { EditproyectoEmpresarialComponent } from '../proyecto-empresarial/editproyecto-empresarial/editproyecto-empresarial.component';
 import { DelproyectoEmpresarialComponent } from '../proyecto-empresarial/delproyecto-empresarial/delproyecto-empresarial.component';
 import { filter } from 'rxjs/internal/operators/filter';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 @Component({
   selector: 'app-proyecto-empresarial',
   templateUrl: './proyecto-empresarial.component.html',
@@ -126,6 +128,12 @@ export class ProyectoEmpresarialComponent implements OnInit {
       console.log(error);
     }
     );
+  }
+  donwloadPDF(){
+    const doc = new jsPDF('p', 'mm', 'a2');
+    doc.autoTable({html: '#reuniones'});
+    doc.save('reuniones.pdf');
+    
   }
 
   cargarestudiante(){

@@ -7,6 +7,9 @@ import { AddinfEstudianteComponent } from '../informe-aprendizaje-estudiante/add
 import { EditinfEstudianteComponent } from '../informe-aprendizaje-estudiante/editinf-estudiante/editinf-estudiante.component';
 import { DelinfEstudianteComponent } from '../informe-aprendizaje-estudiante/delinf-estudiante/delinf-estudiante.component';
 import { filter } from 'rxjs/internal/operators/filter';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
+
 @Component({
   selector: 'app-informe-aprendizaje-estudiante',
   templateUrl: './informe-aprendizaje-estudiante.component.html',
@@ -106,6 +109,12 @@ export class InformeAprendizajeEstudianteComponent implements OnInit {
       console.log(error);
     }
     );
+  }
+  donwloadPDF(){
+    const doc = new jsPDF('p', 'mm', 'a3');
+    doc.autoTable({html: '#reuniones'});
+    doc.save('ActicvidadesInformeAprendizaje.pdf');
+    
   }
 
   cargarinforme(){

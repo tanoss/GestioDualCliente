@@ -6,6 +6,8 @@ import { filter } from 'rxjs/internal/operators/filter';
 import { AddplanMarcoFormacionComponent } from './addplan-marco-formacion/addplan-marco-formacion.component';
 import { EditplanMarcoFormacionComponent } from './editplan-marco-formacion/editplan-marco-formacion.component';
 import { DelplanMarcoFormacionComponent } from './delplan-marco-formacion/delplan-marco-formacion.component';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 @Component({
   selector: 'app-plan-marco-formacion',
   templateUrl: './plan-marco-formacion.component.html',
@@ -117,6 +119,12 @@ export class PlanMarcoFormacionComponent implements OnInit {
       console.log(error);
     }
     );
+  }
+  donwloadPDF(){
+    const doc = new jsPDF('p', 'mm', 'a2');
+    doc.autoTable({html: '#reuniones'});
+    doc.save('Plan-Marco-Formacion.pdf');
+    
   }
 
   cargarestudiante(){

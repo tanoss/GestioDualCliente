@@ -7,6 +7,8 @@ import { AddinfTutorComponent } from '../informe-aprendizaje-tutor/addinf-tutor/
 import { EditinfTutorComponent } from '../informe-aprendizaje-tutor/editinf-tutor/editinf-tutor.component';
 import { DelinfTutorComponent } from '../informe-aprendizaje-tutor/delinf-tutor/delinf-tutor.component';
 import { filter } from 'rxjs/internal/operators/filter';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 @Component({
   selector: 'app-informe-aprendizaje-tutor',
   templateUrl: './informe-aprendizaje-tutor.component.html',
@@ -114,6 +116,12 @@ export class InformeAprendizajeTutorComponent implements OnInit {
       console.log(error);
     }
     );
+  }
+  donwloadPDF(){
+    const doc = new jsPDF('p', 'mm', 'a3');
+    doc.autoTable({html: '#reuniones'});
+    doc.save('Informes-Aprendizaje.pdf');
+    
   }
 
    // Agrega un Centro

@@ -7,6 +7,8 @@ import { EditplanRotacionComponent } from '../plan-rotacion/editplan-rotacion/ed
 import { DelplanRotacionComponent } from '../plan-rotacion/delplan-rotacion/delplan-rotacion.component';
 import { filter } from 'rxjs/internal/operators/filter';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 @Component({
   selector: 'app-plan-rotacion',
@@ -123,6 +125,13 @@ export class PlanRotacionComponent implements OnInit {
     this.api.getData("business_project_plans/students").subscribe((data:{})=>{
       this.estudiantes = data
     })
+  }
+
+  donwloadPDF(){
+    const doc = new jsPDF('p', 'mm', 'a3');
+    doc.autoTable({html: '#reuniones'});
+    doc.save('PlanRotacion.pdf');
+    
   }
 
   // Agrega un Centro
